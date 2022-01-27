@@ -1,6 +1,7 @@
 module ec.edu.espol.proyecto {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.base;
 
     opens ec.edu.espol.proyecto to javafx.fxml;
     exports ec.edu.espol.proyecto;
@@ -9,5 +10,5 @@ module ec.edu.espol.proyecto {
     opens ec.edu.espol.util to javafx.fxml;
     exports ec.edu.espol.util;
     opens ec.edu.espol.controllers to javafx.fxml;
-    exports ec.edu.espol.controllers;
+    exports ec.edu.espol.controller;
 }
