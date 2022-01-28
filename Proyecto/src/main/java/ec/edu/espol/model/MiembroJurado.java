@@ -6,8 +6,13 @@
 package ec.edu.espol.model;
 
 import ec.edu.espol.util.Util;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Objects;
@@ -66,30 +71,32 @@ public class MiembroJurado extends Persona{
     //Guardar objetos en archivos
     
     @Override
-    public void saveFile(String nomFile){
-        try (PrintWriter pw = new PrintWriter(new FileOutputStream(new File(nomFile),true))){
+    public void saveFile(String nomFile) throws ConcursoException{
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(nombre, false))){// Sino funciona poner el true
+            PrintWriter pw = new PrintWriter(bw);
             pw.println(Util.nextID(nomFile)+"|"+this.nombre+"|"+this.apellidos+
                     "|"+this.telefono+"|"+this.email+"|"+this.descripcionPerfilProfesional);
         }
-        catch(Exception e){
-            System.out.println(e.getMessage());
-        }
+         catch(IOException ex){
+            throw new ConcursoException("Error en la lectura");
+         }
     }
     
     
     
-    public static ArrayList<MiembroJurado> readFromFile(String nomFile){
+    public static ArrayList<MiembroJurado> readFromFile(String nomFile) throws ConcursoException{
         ArrayList<MiembroJurado> mjrs = new ArrayList<>();
-        try(Scanner sc = new Scanner(new File(nomFile))){
-            while(sc.hasNextLine()){
-                String linea = sc.nextLine();
-                String[] tokens = linea.split("\\|");
+        try(BufferedReader bf = new BufferedReader(new FileReader(nomFile))){
+            String line;
+            while((line = bf.readLine())!= null){
+                //String linea = sc.nextLine();
+                String[] tokens = line.split("\\|");
                 MiembroJurado mjr = new MiembroJurado(Integer.parseInt(tokens[0]), tokens[1], tokens[2], tokens[3], tokens[4], tokens[5]);
                 mjrs.add(mjr);
             }
         }
-        catch(Exception e){
-            System.out.println(e.getMessage());
+        catch(IOException ex){
+            throw new ConcursoException("Error en la lectura");
         }
         return mjrs;
     }

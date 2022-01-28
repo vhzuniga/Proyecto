@@ -6,8 +6,13 @@
 package ec.edu.espol.model;
 
 import ec.edu.espol.util.Util;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -134,31 +139,30 @@ public class Evaluacion {
         return "Evaluacion{" + "idMiembroJurado=" + idMiembroJurado + ", idInscripcion=" + idInscripcion + ", calificacion=" + calificacion + '}';
     }
     
-       public void saveFile(String nomfile){
-        try(PrintWriter pw = new PrintWriter(new FileOutputStream(new File(nomfile),true )))
-        {
+       public void saveFile(String nomfile) throws ConcursoException{
+        try(BufferedWriter bw = new BufferedWriter(new FileWriter(nomfile, false))){//No estoy segura si es true o false, antes estaba true
+            PrintWriter pw = new PrintWriter(bw);
             pw.println(this.idEvalucion+"|"+ this.idMiembroJurado+"|"+this.idInscripcion+"|"+this.calificacion+"|"+this.idCriterio);
         }
-        catch(Exception e){
-            System.out.println(e.getMessage());
-  
+        catch(IOException ex){
+            throw new ConcursoException("Error en la lectura");
         }
     }
-   public static ArrayList<Evaluacion> readFile(String nomfile){
+   public static ArrayList<Evaluacion> readFile(String nomfile) throws ConcursoException{
         ArrayList<Evaluacion> evaluaciones= new ArrayList<>();
-        try(Scanner sc= new Scanner(new File(nomfile))){
-            while(sc.hasNextLine())
+        try(BufferedReader bf = new BufferedReader(new FileReader(nomfile))){
+            String line;
+            while((line = bf.readLine())!= null)
             {
                 /* idEvaluacion, idMiembroJurado, idInscripcion, calificacion, idCriterio*/
-                String linea=sc.nextLine();
-                String [] tokens= linea.split("\\|");
+                //String linea=sc.nextLine();
+                String [] tokens= line.split("\\|");
                 Evaluacion eva = new Evaluacion(Integer.parseInt(tokens[0]),Integer.parseInt(tokens[1]), Integer.parseInt(tokens[2]), Double.parseDouble(tokens[3]), Integer.parseInt(tokens[4]));
                 evaluaciones.add(eva);
             }
         }
-        catch(Exception e){
-            System.out.println(e.getMessage());
-  
+        catch(IOException ex){
+            throw new ConcursoException("Error en la lectura");
         }
         return evaluaciones;
     }    

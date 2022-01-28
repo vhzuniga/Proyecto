@@ -6,8 +6,13 @@
 package ec.edu.espol.model;
 
 import ec.edu.espol.util.Util;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -162,22 +167,24 @@ public class Concurso {
     }
     //métodos
     
-     public void saveFile(String nomFile){ 
-        try(PrintWriter pw = new PrintWriter(new FileOutputStream(new File(nomFile),true))){
+     public void saveFile(String nomFile) throws ConcursoException{ 
+        try(BufferedWriter bw = new BufferedWriter(new FileWriter(nomFile, false))){//No estoy segura si es true o false, antes estaba true
+            PrintWriter pw = new PrintWriter(bw);
             pw.println(Util.nextID(nomFile)+ "|" + this.nombre+"|" + this.fecha +"|" + this.fechaInscripcion + "|" + this.fechaCierreInscripcion+ "|" + this.tematica);
             
         }
-        catch(Exception e){
-            System.out.println(e.getMessage());
+        catch(IOException ex){
+            throw new ConcursoException("Error en la lectura");
         }
     }
     
-    public static ArrayList<Concurso> readFromFile(String nomFile){
+    public static ArrayList<Concurso> readFromFile(String nomFile) throws ConcursoException{
         ArrayList<Concurso> concurso = new ArrayList<>();
-        try(Scanner sc = new Scanner(new File(nomFile))){
-            while(sc.hasNextLine()){
-                String linea = sc.nextLine();
-                String[] tokens = linea.split("\\|");// revisar video
+        try(BufferedReader bf = new BufferedReader(new FileReader(nomFile))){
+            String line;
+            while((line = bf.readLine())!= null){
+                //String linea = sc.nextLine();
+                String[] tokens = line.split("\\|");// revisar video
                 /*int idConcurso, String nombre, LocalDate fecha, LocalDate fechaInscripcion, LocalDate fechaCierreInscripcion, String tematica*/
                 Concurso con = new Concurso (Integer.parseInt(tokens[0]),tokens[1],LocalDate.parse(tokens[2]),LocalDate.parse(tokens[3]),
                         LocalDate.parse(tokens[4]),tokens[5]);
@@ -185,12 +192,33 @@ public class Concurso {
                 concurso.add(con);
             }
         }
-        catch(Exception e){
-            System.out.println(e.getMessage());
+        catch(IOException ex){
+            throw new ConcursoException("Error en la lectura");
         }
         
         return concurso;
     }
+    
+    
+//    public static ArrayList<Concurso> readFromFile(String nomFile){
+//        ArrayList<Concurso> concurso = new ArrayList<>();
+//        try(BufferReader bf = new BufferedReader(new FileReader(nomFile))){
+//            while(bf.hasNextLine()){
+//                String linea = sc.nextLine();
+//                String[] tokens = linea.split("\\|");// revisar video
+//                /*int idConcurso, String nombre, LocalDate fecha, LocalDate fechaInscripcion, LocalDate fechaCierreInscripcion, String tematica*/
+//                Concurso con = new Concurso (Integer.parseInt(tokens[0]),tokens[1],LocalDate.parse(tokens[2]),LocalDate.parse(tokens[3]),
+//                        LocalDate.parse(tokens[4]),tokens[5]);
+//                
+//                concurso.add(con);
+//            }
+//        }
+//        catch(Exception e){
+//            System.out.println(e.getMessage());
+//        }
+//        
+//        return concurso;
+//    }
     
     public static Concurso nextConcurso(Scanner sc){
         sc.useDelimiter("\n");

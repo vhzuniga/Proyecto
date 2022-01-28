@@ -6,8 +6,13 @@
 package ec.edu.espol.model;
 
 import ec.edu.espol.util.Util;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Objects;
@@ -65,30 +70,32 @@ public class Dueño extends Persona{
     //Comportamientos para Archivos (guardar objetos en ellos, leerlos y crear listas con cada uno) y nextObjeto
 
     @Override
-    public void saveFile(String nomFile){
-        try (PrintWriter pw = new PrintWriter(new FileOutputStream(new File(nomFile),true))){
+    public void saveFile(String nomFile) throws ConcursoException{
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(nomFile, false))){//No estoy segura si es true o false, antes estaba true
+            PrintWriter pw = new PrintWriter(bw);
             pw.println(Util.nextID(nomFile)+"|"+this.nombre+"|"+this.apellidos+"|"+
                     this.telefono+"|"+this.email+"|"+this.direccion);
         }
-        catch(Exception e){
-            System.out.println(e.getMessage());
+        catch(IOException ex){
+            throw new ConcursoException("Error en la lectura");
         }
     }
     
     //Crear lista de Dueños por medio de los que se llenan en un archivo
     
-    public static ArrayList<Dueño> readFromFile(String nomFile){
+    public static ArrayList<Dueño> readFromFile(String nomFile) throws ConcursoException{
         ArrayList<Dueño> dos = new ArrayList<>();
-        try(Scanner sc = new Scanner(new File(nomFile))){
-            while(sc.hasNextLine()){
-                String linea = sc.nextLine();
-                String[] tokens = linea.split("\\|");
+        try(BufferedReader bf = new BufferedReader(new FileReader(nomFile))){
+            String line;
+            while((line = bf.readLine())!= null){
+                //String linea = sc.nextLine();
+                String[] tokens = line.split("\\|");
                 Dueño deo = new Dueño(Integer.parseInt(tokens[0]), tokens[1], tokens[2], tokens[3], tokens[4], tokens[5]);
                 dos.add(deo);
             }
         }
-        catch(Exception e){
-            System.out.println(e.getMessage());
+        catch(IOException ex){
+            throw new ConcursoException("Error en la lectura");
         }
         return dos;
     }

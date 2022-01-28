@@ -6,8 +6,13 @@
 package ec.edu.espol.model;
 
 import ec.edu.espol.util.Util;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -158,29 +163,29 @@ public class Inscripcion {
         return sb.toString();
     }
             
-    public void saveFile(String nomfile){
-        try(PrintWriter pw = new PrintWriter(new FileOutputStream(new File(nomfile),true )))
-        {
+    public void saveFile(String nomfile) throws ConcursoException{
+        try(BufferedWriter bw = new BufferedWriter(new FileWriter(nomfile, false))){//No estoy segura si es true o false, antes estaba true
+            PrintWriter pw = new PrintWriter(bw);
             pw.println(this.idInscripcion+"|"+this.idMascota+"|"+ this.idConcurso+"|"+ this.fechaInscripcion+"|"+this.costoInscripcion);
         }
-        catch(Exception e){
-            System.out.println(e.getMessage());
+        catch(IOException ex){
+            throw new ConcursoException("Error en la lectura");
         }
     }
-       public static ArrayList<Inscripcion> readFromFile(String nomfile){
+       public static ArrayList<Inscripcion> readFromFile(String nomfile) throws ConcursoException{
         ArrayList<Inscripcion> inscripciones = new ArrayList<>();
-        try(Scanner sc= new Scanner(new File(nomfile))){
-            while(sc.hasNextLine())
+        try(BufferedReader bf = new BufferedReader(new FileReader(nomfile))){
+            String line;
+            while((line = bf.readLine())!= null)
             {
-                String linea=sc.nextLine();
-                String [] tokens= linea.split("\\|");
+                //String linea=sc.nextLine();
+                String [] tokens= line.split("\\|");
                 Inscripcion insc = new Inscripcion(Integer.parseInt(tokens[0]),Integer.parseInt(tokens[1]), Integer.parseInt(tokens[2]), LocalDate.parse(tokens[3]), Double.parseDouble(tokens[4]));
                 inscripciones.add(insc);
             }
         }
-        catch(Exception e){
-            System.out.println(e.getMessage());
-  
+        catch(IOException ex){
+            throw new ConcursoException("Error en la lectura");
         }
         return inscripciones;
        }

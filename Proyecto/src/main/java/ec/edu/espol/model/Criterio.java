@@ -6,8 +6,13 @@
 package ec.edu.espol.model;
 
 import ec.edu.espol.util.Util;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Date;
@@ -140,28 +145,30 @@ public class Criterio {
     }
     
     
-    public void saveFile(String nomFile){ 
-        try(PrintWriter pw = new PrintWriter(new FileOutputStream(new File(nomFile),true))){
+    public void saveFile(String nomFile) throws ConcursoException{ 
+        try(BufferedWriter bw = new BufferedWriter(new FileWriter(nomFile, false))){//No estoy segura si es true o false, antes estaba true
+            PrintWriter pw = new PrintWriter(bw);
             pw.println(Util.nextID(nomFile)+"|"+this.idConcurso+"|"+this.nombre+"|"+this.descripcion+"|"+this.puntajeMax);
             
         }
-        catch(Exception e){
-            System.out.println(e.getMessage());
+        catch(IOException ex){
+            throw new ConcursoException("Error en la lectura");
         }
     }
     
-    public static ArrayList<Criterio> readFromFile(String nomFile){
+    public static ArrayList<Criterio> readFromFile(String nomFile) throws ConcursoException{
         ArrayList<Criterio> criterio = new ArrayList<>();
-        try(Scanner sc = new Scanner(new File(nomFile))){
-            while(sc.hasNextLine()){
-                String linea = sc.nextLine();
-                String[] tokens = linea.split("\\|");
+        try(BufferedReader bf = new BufferedReader(new FileReader(nomFile))){
+            String line;
+            while((line = bf.readLine())!= null){
+                //String linea = sc.nextLine();
+                String[] tokens = line.split("\\|");
                 Criterio cr = new Criterio(Integer.parseInt(tokens[0]),Integer.parseInt(tokens[1]), tokens[2],tokens[3],Double.parseDouble(tokens[4]));
                 criterio.add(cr);
             }
         }
-        catch(Exception e){
-            System.out.println(e.getMessage());
+        catch(IOException ex){
+            throw new ConcursoException("Error en la lectura");
         }
         
         return criterio;

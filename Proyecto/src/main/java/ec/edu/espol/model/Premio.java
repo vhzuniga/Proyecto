@@ -6,8 +6,13 @@
 package ec.edu.espol.model;
 
 import ec.edu.espol.util.Util;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -80,30 +85,36 @@ public class Premio {
 
     //Guardar Objetos Premio en un archivo de estos
     
-    public void saveFile(String nomFile){
-        try (PrintWriter pw = new PrintWriter(new FileOutputStream(new File(nomFile),true))){
+    public void saveFile(String nomFile) throws ConcursoException{
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(nomFile, false))){//No estoy segura si es true o false, antes estaba true
+            PrintWriter pw = new PrintWriter(bw);
             pw.println(Util.nextID(nomFile)+"|"+this.idConcurso+"|"+this.puesto+"|"+
                 this.descripcion);
         }
-        catch(Exception e){
-            System.out.println(e.getMessage());
+        catch(IOException ex){
+            throw new ConcursoException("Error en la lectura");
         }
+//        catch(Exception e){
+//            System.out.println(e.getMessage());
+//        }
+
     }
     
     
     
-    public static ArrayList<Premio> readFromFile(String nomFile){
+    public static ArrayList<Premio> readFromFile(String nomFile) throws ConcursoException {
         ArrayList<Premio> prms = new ArrayList<>();
-        try(Scanner sc = new Scanner(new File(nomFile))){
-            while(sc.hasNextLine()){
-                String linea = sc.nextLine();
-                String[] tokens = linea.split("\\|");
+        try(BufferedReader bf = new BufferedReader(new FileReader(nomFile))){
+            String line;
+            while((line = bf.readLine())!= null){
+                //String linea = sc.nextLine();
+                String[] tokens = line.split("\\|");
                 Premio prm = new Premio(Integer.parseInt(tokens[0]), Integer.parseInt(tokens[1]), Integer.parseInt(tokens[2]), tokens[3], null);
                 prms.add(prm);
             }
         }
-        catch(Exception e){
-            System.out.println(e.getMessage());
+        catch(IOException ex){
+            throw new ConcursoException("Error en la lectura");
         }
         return prms;
     }
