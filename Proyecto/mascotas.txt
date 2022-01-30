@@ -1,2 +1,0 @@
-1|1|pepita|gato|naranja|2018-08-09
-2|1|juan|gato|naranja|2020-09-09

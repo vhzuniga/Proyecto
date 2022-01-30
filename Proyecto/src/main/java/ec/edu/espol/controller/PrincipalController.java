@@ -2,6 +2,7 @@ package ec.edu.espol.controller;
 
 import ec.edu.espol.model.ConcursoException;
 import ec.edu.espol.model.Dueño;
+import ec.edu.espol.model.Evaluacion;
 import ec.edu.espol.model.Mascota;
 import ec.edu.espol.proyecto.App;
 import java.io.BufferedReader;
@@ -19,6 +20,7 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
 /**
@@ -42,6 +44,8 @@ public class PrincipalController implements Initializable {
     private Button btnPremio;
     @FXML
     private Button btnMascota;
+    @FXML
+    private Pane paneImagen;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -65,9 +69,20 @@ public class PrincipalController implements Initializable {
             btnInscripcion.setDisable(true);
         }catch(ConcursoException ce){
             btnInscripcion.setDisable(true);
-             
-            
         }
+        try{
+        ArrayList<Evaluacion> evaluaciones= Evaluacion.readFile("evaluaciones.txt");
+        if(evaluaciones.isEmpty())
+            btnEvaluacion.setDisable(true);
+        }catch(ConcursoException ce){
+            btnEvaluacion.setDisable(true);
+        }
+        ArrayList<String> imagenes1= cargarImagenes("mascota.txt");
+        Image encabezado = new Image("img miembroJ/" + imagenes1.get(0));
+        ImageView imv= new ImageView(encabezado);
+        imv.setFitWidth(100);
+        imv.setFitHeight(100);
+        paneImagen.getChildren().add(imv);
         
         
     
