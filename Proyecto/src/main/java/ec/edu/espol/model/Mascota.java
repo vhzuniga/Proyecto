@@ -139,9 +139,9 @@ public class Mascota {
 
     @Override
     public String toString() {
-        return "Mascota{" + "idMascota=" + idMascota + ", nombre=" + nombre + ", raza=" + raza + ", fechaNacimiento=" + fechaNacimiento + ", tipo=" + tipo + ", idDue\u00f1o=" + idDueño + ", due\u00f1o=" + dueño + ", inscripciones=" + inscripciones + '}';
-    }
-    
+        return "idMascota=" + idMascota +"id Dueño:"+ idDueño+", nombre=" + nombre + ", tipo= "+tipo+", raza=" + raza + ", fechaNacimiento=" + fechaNacimiento;
+    }  //int idMascota, String nombre, String tipo, String raza, LocalDate fechaNacimiento, int idDueño, Dueño dueño, ArrayList<Inscripcion> inscripciones
+    //int idMascota,int idDueño, String nombre, String tipo, String raza, LocalDate fechaNacimiento
     
     
     public void saveFile(String nomFile) throws ConcursoException{ 

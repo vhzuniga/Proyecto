@@ -70,7 +70,7 @@ public class MiembroJurado extends Persona{
     
     @Override
     public void saveFile(String nomFile) throws ConcursoException{
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter(nombre, false))){// Sino funciona poner el true
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(nombre, true))){// Sino funciona poner el true
             PrintWriter pw = new PrintWriter(bw);
             pw.println(Util.nextID(nomFile)+"|"+this.nombre+"|"+this.apellidos+
                     "|"+this.telefono+"|"+this.email+"|"+this.descripcionPerfilProfesional);

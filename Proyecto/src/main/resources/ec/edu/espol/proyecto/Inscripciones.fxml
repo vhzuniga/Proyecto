@@ -10,7 +10,7 @@
 <AnchorPane id="AnchorPane" prefHeight="602.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.controller.InscripcionesController">
    <children>
       <Text layoutX="266.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Inscripciones" />
-      <ComboBox fx:id="cbxMascota" layoutX="201.0" layoutY="297.0" prefHeight="25.0" prefWidth="175.0" promptText="Seleccione" />
+      <ComboBox fx:id="cbxMascota" layoutX="201.0" layoutY="297.0" onAction="#cambiar" prefHeight="25.0" prefWidth="175.0" promptText="Seleccione" />
       <Text layoutX="50.0" layoutY="314.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mascota" />
       <Text layoutX="46.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Si su mascota no consta en las opciones por favor haga clic en el botón ¨Registrar Mascota¨" />
       <Button fx:id="btnMascota" layoutX="443.0" layoutY="297.0" mnemonicParsing="false" onAction="#switchToMascota" text="Registrar Mascota" />
