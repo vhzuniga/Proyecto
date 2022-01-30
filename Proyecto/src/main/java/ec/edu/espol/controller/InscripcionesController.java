@@ -23,6 +23,8 @@ public class InscripcionesController implements Initializable {
 
     @FXML
     private Button btnMenu;
+    @FXML
+    private Button btnMascota;
 
     /**
      * Initializes the controller class.
@@ -35,6 +37,11 @@ public class InscripcionesController implements Initializable {
     @FXML
     private void switchToMenu(ActionEvent event) throws IOException {
         App.setRoot("principal");
+    }
+
+    @FXML
+    private void switchToMascota(ActionEvent event) throws IOException {
+        App.setRoot("Mascotas");
     }
     
 }
