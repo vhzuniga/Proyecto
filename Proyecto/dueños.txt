@@ -1,0 +1,4 @@
+1|Felipe|andrade|433434|max@gmail.com|loja
+2|Daniela|cueva|223232|dani@gmail.com|loja
+3|Pablo|Torres|2023223|pablo@gmail.com|av.loja
+4|Alex|Flores|4342342|alex@gmail.com|zamora

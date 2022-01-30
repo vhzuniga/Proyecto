@@ -59,7 +59,9 @@ public class ConcursoController implements Initializable {
         Label informacion= new Label();
         informacion.setText("Información");
         vbxinfo.getChildren().add(informacion);
+        //Concurso con = ((Concurso)cbxConcursos.getValue());
         
+        //vbxinfo.(cbxConcursos.getSelectionModel();)
         
         
         
@@ -75,10 +77,13 @@ public class ConcursoController implements Initializable {
     @FXML
     private void cambiar(ActionEvent event) {
         vbxinfo.getChildren().clear();
+        
         Label informacion= new Label();
         informacion.setText("Información");
         vbxinfo.getChildren().add(informacion);
-        //for(Concurso c: )falta hacer que al escoger el concurso aparezca la información en el vbox
+        //Label.
+        
+//for(Concurso c: )falta hacer que al escoger el concurso aparezca la información en el vbox
     }
 
         // TODO
@@ -86,7 +91,7 @@ public class ConcursoController implements Initializable {
     private void switchToMenu(ActionEvent event) throws IOException {
         App.setRoot("principal");
     }
-    }    
+}    
 
     
     

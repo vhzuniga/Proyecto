@@ -1,0 +1,2 @@
+1|1|pepito|perro|dalmata|2020-12-03
+2|2|duquesa|gato|blanco|2003-12-02
