@@ -65,7 +65,7 @@ public class Inscripcion {
             return false;
         }
         Inscripcion new_ins = (Inscripcion) obj;
-        return (this.idInscripcion == new_ins.idInscripcion);
+        return (this.idMascota == new_ins.idMascota && this.idConcurso== new_ins.idConcurso);
     }
 
     public void setIdInscripcion(int idInscripcion) {
