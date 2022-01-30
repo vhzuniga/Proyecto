@@ -60,5 +60,13 @@ public class EvaluacionController implements Initializable {
     private void swtichToMenu(ActionEvent event) throws IOException {
         App.setRoot("principal");
     }
+
+    @FXML
+    private void Guardar(ActionEvent event) {
+        //int idEvalucion, int idMiembroJurado, int idInscripcion, double calificacion, int idCriterio
+        Double cali=Double.parseDouble(txtNota.getText());
+        
+      
+    }
     
 }

@@ -11,12 +11,15 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
@@ -38,6 +41,20 @@ public class MascotasController implements Initializable {
     private ArrayList<String> imagenes;
     @FXML
     private Button btnDueño;
+    @FXML
+    private TextField txtnombre;
+    @FXML
+    private TextField txtraza;
+    @FXML
+    private ComboBox<?> cbxtipo;
+    @FXML
+    private ComboBox<?> cbxAño;
+    @FXML
+    private ComboBox<?> cbxMes;
+    @FXML
+    private ComboBox<?> cbxDía;
+    @FXML
+    private ComboBox<?> cbxDueño;
 
     /**
      * Initializes the controller class.
@@ -87,6 +104,20 @@ public class MascotasController implements Initializable {
     @FXML
     private void switchToDueño(ActionEvent event) throws IOException {
         App.setRoot("Dueño");
+    }
+
+    @FXML
+    private void Guardar(ActionEvent event) {
+        //int idMascota,int idDueño, String nombre, String tipo, String raza, LocalDate fechaNacimiento
+        //para obtener el id
+        //String nombreDue= cbxDueño.getValue();
+        //int idDue= obtenerDueñoXNombre(nombreDue);
+        String nombre = txtnombre.getText();
+        //String tipo = 
+        String raza = txtraza.getText();
+        String fecha= cbxAño.getValue()+"-"+cbxMes.getValue()+"-"+cbxDía.getValue();
+        //LocalDate fechaNacimiento = fecha;
+        
     }
     
     

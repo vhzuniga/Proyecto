@@ -6,6 +6,7 @@
 package ec.edu.espol.controller;
 
 import static ec.edu.espol.controller.MascotasController.cargarImagenes;
+import ec.edu.espol.model.Dueño;
 import ec.edu.espol.proyecto.App;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -17,6 +18,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
@@ -36,6 +38,16 @@ public class DueñoController implements Initializable {
     private HBox hboxDueños;
     @FXML
     private Button btnMascota;
+    @FXML
+    private TextField txtNombre;
+    @FXML
+    private TextField txtApellido;
+    @FXML
+    private TextField txtDireccion;
+    @FXML
+    private TextField txtTelefono;
+    @FXML
+    private TextField txtEmail;
 
     /**
      * Initializes the controller class.
@@ -57,6 +69,17 @@ public class DueñoController implements Initializable {
 
     @FXML
     private void GuardarCambios(ActionEvent event) {
+        String nombre = txtNombre.getText();
+        String apellido = txtApellido.getText();
+        String telefono = txtTelefono.getText();
+        String email = txtEmail.getText();
+        String direccion = txtDireccion.getText();
+        
+        Dueño due = new Dueño(2,nombre,apellido,telefono,email,direccion);
+        due.saveFile("dueños.txt");
+       
+       
+        
     }
     
     public static ArrayList<String> cargarImagenes(String nombreArchivo) {

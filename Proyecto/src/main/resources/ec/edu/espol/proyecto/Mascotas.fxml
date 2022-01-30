@@ -15,26 +15,26 @@
       <ComboBox layoutX="423.0" layoutY="188.0" prefWidth="150.0" promptText="Seleccione" />
       <Text layoutX="111.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gatos" wrappingWidth="102.13671875" />
       <Text layoutX="447.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Perros" wrappingWidth="150.0" />
-      <TextField layoutX="186.0" layoutY="303.0" prefHeight="25.0" prefWidth="329.0" />
-      <TextField layoutX="186.0" layoutY="343.0" prefHeight="25.0" prefWidth="329.0" />
+      <TextField fx:id="txtnombre" layoutX="186.0" layoutY="303.0" prefHeight="25.0" prefWidth="329.0" />
+      <TextField fx:id="txtraza" layoutX="186.0" layoutY="343.0" prefHeight="25.0" prefWidth="329.0" />
       <Text layoutX="53.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre: " />
       <Text layoutX="41.0" layoutY="427.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha de nacimiento: " />
       <Text layoutX="52.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Raza: " />
       <Text layoutX="52.0" layoutY="484.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tipo de mascota: " />
       <Text layoutX="56.0" layoutY="525.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dueño" />
-      <ComboBox layoutX="186.0" layoutY="467.0" prefWidth="150.0" promptText="Seleccione" />
-      <ComboBox layoutX="188.0" layoutY="410.0" prefHeight="25.0" prefWidth="39.0" />
-      <ComboBox layoutX="261.0" layoutY="410.0" prefHeight="25.0" prefWidth="39.0" />
-      <ComboBox layoutX="336.0" layoutY="410.0" prefHeight="25.0" prefWidth="39.0" />
+      <ComboBox fx:id="cbxtipo" layoutX="186.0" layoutY="467.0" prefWidth="150.0" promptText="Seleccione" />
+      <ComboBox fx:id="cbxAño" layoutX="188.0" layoutY="410.0" prefHeight="25.0" prefWidth="39.0" />
+      <ComboBox fx:id="cbxMes" layoutX="261.0" layoutY="410.0" prefHeight="25.0" prefWidth="39.0" />
+      <ComboBox fx:id="cbxDía" layoutX="336.0" layoutY="410.0" prefHeight="25.0" prefWidth="39.0" />
       <Text layoutX="202.0" layoutY="397.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Año" />
       <Text layoutX="275.0" layoutY="397.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mes" />
       <Text layoutX="350.0" layoutY="397.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Día" />
       <Text layoutX="53.0" layoutY="272.0" strokeType="OUTSIDE" strokeWidth="0.0" text="En caso de que su mascota no esté aparezca en las opciones, por favor llene los siguientes datos: " />
-      <ComboBox layoutX="186.0" layoutY="508.0" prefWidth="150.0" promptText="Seleccione" />
+      <ComboBox fx:id="cbxDueño" layoutX="186.0" layoutY="508.0" prefWidth="150.0" promptText="Seleccione" />
       <Text layoutX="423.0" layoutY="521.0" strokeType="OUTSIDE" strokeWidth="0.0" text="En caso de no encontrar a su dueño registado por favor haga clic en el botón ¨Registrar Dueño¨" wrappingWidth="250.8828125" />
       <Button fx:id="btnDueño" layoutX="518.0" layoutY="566.0" mnemonicParsing="false" onAction="#switchToDueño" text="Registrar Dueño" />
       <Button fx:id="btnMenu" layoutX="73.0" layoutY="566.0" mnemonicParsing="false" onAction="#switchToMenu" text="Volver al menú principal" />
       <Text layoutX="325.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mascotas" />
-      <Button layoutX="306.0" layoutY="566.0" mnemonicParsing="false" text="Guardar cambios" />
+      <Button layoutX="306.0" layoutY="566.0" mnemonicParsing="false" onAction="#Guardar" text="Guardar cambios" />
    </children>
 </AnchorPane>
