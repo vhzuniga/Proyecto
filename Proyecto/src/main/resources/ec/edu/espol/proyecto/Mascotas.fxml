@@ -9,8 +9,8 @@
 
 <AnchorPane id="AnchorPane" prefHeight="617.0" prefWidth="693.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.controller.MascotasController">
    <children>
-      <VBox layoutX="119.0" layoutY="95.0" prefHeight="58.0" prefWidth="67.0" />
-      <VBox layoutX="465.0" layoutY="101.0" prefHeight="58.0" prefWidth="67.0" />
+      <VBox fx:id="vboxgato" layoutX="119.0" layoutY="95.0" prefHeight="58.0" prefWidth="67.0" />
+      <VBox fx:id="vboxperro" layoutX="465.0" layoutY="101.0" prefHeight="58.0" prefWidth="67.0" />
       <ComboBox layoutX="77.0" layoutY="188.0" prefWidth="150.0" promptText="Seleccione" />
       <ComboBox layoutX="423.0" layoutY="188.0" prefWidth="150.0" promptText="Seleccione" />
       <Text layoutX="111.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gatos" wrappingWidth="102.13671875" />

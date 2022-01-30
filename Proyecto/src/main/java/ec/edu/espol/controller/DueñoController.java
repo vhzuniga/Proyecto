@@ -13,6 +13,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.layout.HBox;
 
 /**
  * FXML Controller class
@@ -23,6 +24,10 @@ public class DueñoController implements Initializable {
 
     @FXML
     private Button btnMenu;
+    @FXML
+    private Button btnCambios;
+    @FXML
+    private HBox hboxDueños;
 
     /**
      * Initializes the controller class.
@@ -36,5 +41,11 @@ public class DueñoController implements Initializable {
     private void swtichToMenu(ActionEvent event) throws IOException {
         App.setRoot("principal");
     }
+
+    @FXML
+    private void GuardarCambios(ActionEvent event) {
+    }
+    
+    
     
 }
