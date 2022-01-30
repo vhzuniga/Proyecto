@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.controller.MiembroJuradoController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="673.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.controller.MiembroJuradoController">
    <children>
-      <Text layoutX="127.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Informacion de registro" />
+      <ComboBox layoutX="73.0" layoutY="255.0" prefWidth="150.0" promptText="Seleccione" />
+      <ComboBox layoutX="419.0" layoutY="255.0" prefWidth="150.0" promptText="Seleccione" />
+      <VBox layoutX="98.0" layoutY="116.0" prefHeight="97.0" prefWidth="100.0" />
+      <VBox layoutX="444.0" layoutY="116.0" prefHeight="97.0" prefWidth="100.0" />
+      <Text layoutX="293.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Miembro Jurado" />
+      <Text layoutX="87.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Escoja un miembro del jurado para ver la información" />
+      <Button layoutX="264.0" layoutY="353.0" mnemonicParsing="false" text="Volver al menú principal" />
    </children>
 </AnchorPane>
