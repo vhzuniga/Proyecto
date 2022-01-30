@@ -128,14 +128,21 @@ public class Mascota {
     }
 
     
-    @Override
+    /*@Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Macota No. " + this.idMascota + "\n Nombre de la mascota: " + this.nombre+"\n Tipo de animal: " + this.tipo +"/n Raza de la mascota: " + this.raza + "/n Fecha de nacimiento: " + this.fechaNacimiento+ "Pertenece a /n"+ "Id de Dueño: "+this.dueño.getId()+"/n Nombre: "+this.dueño.getNombre()+", Apellidos: "+ this.dueño.getApellidos());
         for(Inscripcion inscripcion : this.inscripciones)
             sb.append("\n Costo de la inscripcion: "+inscripcion.getCostoInscripcion()+"/n Fecha de inscripción: "+inscripcion.getFechaInscripcion()+".\n");
         return sb.toString();
+    }*/
+
+    @Override
+    public String toString() {
+        return "Mascota{" + "idMascota=" + idMascota + ", nombre=" + nombre + ", raza=" + raza + ", fechaNacimiento=" + fechaNacimiento + ", tipo=" + tipo + ", idDue\u00f1o=" + idDueño + ", due\u00f1o=" + dueño + ", inscripciones=" + inscripciones + '}';
     }
+    
+    
     
     public void saveFile(String nomFile) throws ConcursoException{ 
         try(BufferedWriter bw = new BufferedWriter(new FileWriter(nomFile, true))){//No estoy segura si es true o false, antes estaba true

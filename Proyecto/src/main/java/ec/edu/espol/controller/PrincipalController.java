@@ -2,6 +2,7 @@ package ec.edu.espol.controller;
 
 import ec.edu.espol.model.ConcursoException;
 import ec.edu.espol.model.Dueño;
+import ec.edu.espol.model.Mascota;
 import ec.edu.espol.proyecto.App;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -49,15 +50,27 @@ public class PrincipalController implements Initializable {
         imagen.start();
         try{
         ArrayList<Dueño> dueños= Dueño.readFromFile("dueños.txt");
+        
         if(dueños.isEmpty()){
             desactivar();
-            
             
         }
         }catch(ConcursoException io){
             desactivar();
             
         }
+        try{
+        ArrayList<Mascota> mascotas= Mascota.readFromFile("mascotas.txt");
+        if(mascotas.isEmpty())
+            btnInscripcion.setDisable(true);
+        }catch(ConcursoException ce){
+            btnInscripcion.setDisable(true);
+             
+            
+        }
+        
+        
+    
         
     }
     public void desactivar(){
