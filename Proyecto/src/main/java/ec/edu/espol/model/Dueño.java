@@ -8,8 +8,6 @@ package ec.edu.espol.model;
 import ec.edu.espol.util.Util;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -71,7 +69,7 @@ public class Dueño extends Persona{
 
     @Override
     public void saveFile(String nomFile) throws ConcursoException{
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter(nomFile, false))){//No estoy segura si es true o false, antes estaba true
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(nomFile, true))){//No estoy segura si es true o false, antes estaba true
             PrintWriter pw = new PrintWriter(bw);
             pw.println(Util.nextID(nomFile)+"|"+this.nombre+"|"+this.apellidos+"|"+
                     this.telefono+"|"+this.email+"|"+this.direccion);
