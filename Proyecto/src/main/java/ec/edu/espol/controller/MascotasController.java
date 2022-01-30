@@ -6,7 +6,10 @@
 package ec.edu.espol.controller;
 
 import static ec.edu.espol.controller.PrincipalController.cargarImagenes;
+import ec.edu.espol.model.Dueño;
+import ec.edu.espol.model.Mascota;
 import ec.edu.espol.proyecto.App;
+import ec.edu.espol.util.Util;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -14,9 +17,11 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
@@ -46,15 +51,15 @@ public class MascotasController implements Initializable {
     @FXML
     private TextField txtraza;
     @FXML
-    private ComboBox<?> cbxtipo;
+    private ComboBox<String> cbxtipo;
     @FXML
-    private ComboBox<?> cbxAño;
+    private ComboBox<String> cbxAño;
     @FXML
-    private ComboBox<?> cbxMes;
+    private ComboBox<String> cbxMes;
     @FXML
-    private ComboBox<?> cbxDía;
+    private ComboBox<String> cbxDía;
     @FXML
-    private ComboBox<?> cbxDueño;
+    private ComboBox<Dueño> cbxDueño;
 
     /**
      * Initializes the controller class.
@@ -74,8 +79,17 @@ public class MascotasController implements Initializable {
         imv2.setFitWidth(50);
         imv2.setFitHeight(50);
         vboxperro.getChildren().add(imv2);
-
         
+        ArrayList<Dueño> dueños = Dueño.readFromFile("dueños.txt");
+        cbxDueño.getItems().addAll(dueños);
+        ArrayList<String> dias = cargarImagenes("dia.txt");
+        cbxDía.getItems().addAll(dias);
+        ArrayList<String> meses = cargarImagenes("mes.txt");
+        cbxMes.getItems().addAll(meses);
+        ArrayList<String> año = cargarImagenes("año.txt");
+        cbxAño.getItems().addAll(año);
+        ArrayList<String> tipoMascota = cargarImagenes("tipoMascota.txt");
+        cbxtipo.getItems().addAll(tipoMascota);
 
     }    
 
@@ -108,16 +122,19 @@ public class MascotasController implements Initializable {
 
     @FXML
     private void Guardar(ActionEvent event) {
-        //int idMascota,int idDueño, String nombre, String tipo, String raza, LocalDate fechaNacimiento
-        //para obtener el id
-        //String nombreDue= cbxDueño.getValue();
-        //int idDue= obtenerDueñoXNombre(nombreDue);
+     
+        
+        int idm = Util.nextID("mascotas.txt");
+        int idDueño= cbxDueño.getValue().getId();
         String nombre = txtnombre.getText();
-        //String tipo = 
+        String tipo = cbxtipo.getValue();
         String raza = txtraza.getText();
         String fecha= cbxAño.getValue()+"-"+cbxMes.getValue()+"-"+cbxDía.getValue();
-        //LocalDate fechaNacimiento = fecha;
-        
+        LocalDate fn= LocalDate.parse(fecha);
+        Mascota m1= new Mascota(idm,idDueño,nombre,tipo,raza,fn);
+        m1.saveFile("mascotas.txt");
+        Alert a=new Alert(Alert.AlertType.INFORMATION, "Mascota Inscrita exitosamente");
+        a.show();
     }
     
     
