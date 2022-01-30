@@ -7,8 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="481.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17" fx:controller="ec.edu.espol.controller.InscripcionesController">
+<AnchorPane id="AnchorPane" prefHeight="481.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.controller.InscripcionesController">
    <children>
       <Text layoutX="266.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Inscripciones" />
       <ComboBox layoutX="202.0" layoutY="180.0" prefHeight="25.0" prefWidth="175.0" promptText="Seleccione" />
@@ -25,7 +24,7 @@
       <Text layoutX="55.0" layoutY="316.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Valor de la inscripción" />
       <Text layoutX="222.0" layoutY="316.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\$" />
       <Button layoutX="388.0" layoutY="387.0" mnemonicParsing="false" text="Guardar cambios" />
-      <Button layoutX="129.0" layoutY="387.0" mnemonicParsing="false" text="Volver al menú principal" />
+      <Button fx:id="btnMenu" layoutX="129.0" layoutY="387.0" mnemonicParsing="false" onAction="#switchToMenu" text="Volver al menú principal" />
       <Label layoutX="240.0" layoutY="303.0" prefHeight="17.0" prefWidth="22.0" />
       <Text layoutX="55.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Número de mascotas a inscribir" />
       <TextField layoutX="253.0" layoutY="88.0" />

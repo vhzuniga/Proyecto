@@ -5,9 +5,14 @@
  */
 package ec.edu.espol.controller;
 
+import ec.edu.espol.proyecto.App;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 
 /**
  * FXML Controller class
@@ -16,6 +21,9 @@ import javafx.fxml.Initializable;
  */
 public class ConcursoController implements Initializable {
 
+    @FXML
+    private Button btnMenu;
+
     /**
      * Initializes the controller class.
      */
@@ -23,5 +31,10 @@ public class ConcursoController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @FXML
+    private void switchToMenu(ActionEvent event) throws IOException {
+        App.setRoot("principal");
+    }
     
 }

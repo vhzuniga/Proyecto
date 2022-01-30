@@ -1,0 +1,1 @@
+mascota1.jpg,mascota2.jpg,mascota3.jpg,mascota4.jpeg

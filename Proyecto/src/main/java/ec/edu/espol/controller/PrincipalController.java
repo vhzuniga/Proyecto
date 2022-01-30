@@ -1,18 +1,20 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ec.edu.espol.controller;
 
+import ec.edu.espol.proyecto.App;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
 /**
@@ -23,69 +25,135 @@ import javafx.scene.layout.VBox;
 public class PrincipalController implements Initializable {
 
     @FXML
-    private VBox vbximagpricipal;
+    private AnchorPane root;
+    @FXML
+    private VBox vboxImagenes;
+    @FXML
+    private Button btnDueno;
+    @FXML
+    private Button btnEvaluacion;
+    @FXML
+    private Button btnMiembroJurado;
+    @FXML
+    private Button btnInscripcion;
+    @FXML
+    private Button btnCriterio;
+    @FXML
+    private Button btnPremio;
+    @FXML
+    private Button btnConcurso;
+    @FXML
+    private Button btnMascota;
 
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }   
+        ArrayList<String> imagenes= cargarImagenes("imagenes.txt");
+        Thread imagen = new Thread(new Loop(imagenes));
+        imagen.start();
+    }
     
-    private class imagRap implements Runnable{
-        private ArrayList<String> nombres;
-        private int repeticiones;
-        private int i;
-
-        public imagRap(ArrayList<String> nombres, int repeticiones) {
-            this.nombres = nombres;
-            this.repeticiones = repeticiones;
-            this.i=0;
+    public static ArrayList<String> cargarImagenes(String nombreArchivo) {
+        ArrayList<String> imagenes = new ArrayList<>();
+        try(BufferedReader bf = new BufferedReader(new FileReader(nombreArchivo))){
+            String line;
+            while((line = bf.readLine())!= null){
+                String[] imagen = line.split(",");
+                for(int i=0; i<imagen.length; i++){
+                    imagenes.add(imagen[i]);
+                }
+            }
+            
+        } catch (IOException ex) {
+            ex.printStackTrace();
         }
+        return imagenes;
         
-        
+    }
+
+    @FXML
+    private void switchToDueno(ActionEvent event) throws IOException {
+        App.setRoot("Dueño");
+    }
+
+    @FXML
+    private void switchToEvaluacion(ActionEvent event) throws IOException {
+        App.setRoot("Evaluacion");
+    }
+
+    @FXML
+    private void switchToMiembroJurado(ActionEvent event) throws IOException {
+        App.setRoot("MiembroJurado");
+    }
+
+    @FXML
+    private void switchToInscripcion(ActionEvent event) throws IOException {
+        App.setRoot("Inscripciones");
+    }
+
+    @FXML
+    private void switchToCriterio(ActionEvent event) throws IOException {
+        App.setRoot("Criterio");
+    }
+
+    @FXML
+    private void switchToConcurso(ActionEvent event) throws IOException {
+        App.setRoot("Concurso");
+    }
+
+    @FXML
+    private void switchToMascota(ActionEvent event) throws IOException {
+        App.setRoot("Mascotas");
+    }
+    class Loop implements Runnable{
+        ArrayList<String> imagenes;
+
+        public Loop(ArrayList<String> imagenes) {
+            this.imagenes = imagenes;
+        }
         
 
         @Override
         public void run() {
-            int contador = 0;
-            while(true){
-                Platform.runLater(()->{
-                    vbximagpricipal.getChildren().clear();
-                    mostrarImagen(nombres.get(i));
-                });
-                try{
+            int entero = 0;
+            while (true) {
+
+                try {
+
                     Thread.sleep(1000);
-                } catch(InterruptedException ex){
-                    System.out.println(ex.getMessage());
+                    Image i;
+                    Image j;
+                    if (entero % 2 == 0) {
+                        i = new Image("img mascota/" + imagenes.get(0));
+                        j = new Image("img mascota/" + imagenes.get(2));
+                        
+                    } else {
+                        i = new Image("img mascota/" + imagenes.get(1));
+                        j = new Image("img mascota/" + imagenes.get(3));
+                   
+                    }
+                    Platform.runLater(() -> {
+                        vboxImagenes.getChildren().clear();
+
+                        ImageView imv1 = new ImageView(i);
+                        imv1.setFitWidth(300);
+                        imv1.setFitHeight(300);
+                        vboxImagenes.getChildren().add(imv1);
+                        
+                        ImageView imv2 = new ImageView(j);
+                        imv2.setFitWidth(300);
+                        imv2.setFitHeight(300);
+                        vboxImagenes.getChildren().add(imv2);
+                        
+                        
+                        
+                    });
+                    entero += 1;
+                   
+                } catch (InterruptedException ex) {
+                    root.getChildren().clear();
                 }
-                contador+=1;
-                i++;
-                if(i == nombres.size()) i= 0;
             }
         }
         
     }
-    private void mostrarImagenes(ArrayList<String> imagenes){
-        this.vbximagpricipal.getChildren().clear();
-        for(String s: imagenes){
-            Image i = new Image("img mascota/"+s);
-            ImageView imv = new ImageView(i);
-            imv.setFitWidth(300);
-            imv.setFitHeight(200);
-            vbximagpricipal.getChildren().add(imv);
-        }
-    }
-    
-    
-    private void mostrarImagen(String imagenes){
-        this.vbximagpricipal.getChildren().clear();
-            Image i = new Image("img mascota/"+imagenes);
-            ImageView imv = new ImageView(i);
-            imv.setFitWidth(300);
-            imv.setFitHeight(200);
-            vbximagpricipal.getChildren().add(imv);
-    
-}
 }
