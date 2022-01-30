@@ -1,5 +1,7 @@
 package ec.edu.espol.controller;
 
+import ec.edu.espol.model.ConcursoException;
+import ec.edu.espol.model.Dueño;
 import ec.edu.espol.proyecto.App;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -11,6 +13,7 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -46,8 +49,26 @@ public class PrincipalController implements Initializable {
         ArrayList<String> imagenes= cargarImagenes("imagenes.txt");
         Thread imagen = new Thread(new Loop(imagenes));
         imagen.start();
+        try{
+        ArrayList<Dueño> dueños= Dueño.readFromFile("dueños.txt");
+        if(dueños.isEmpty()){
+            desactivar();
+            
+            
+        }
+        }catch(ConcursoException io){
+            desactivar();
+            
+        }
+        
     }
-    
+    public void desactivar(){
+            btnPremio.setDisable(true);
+            btnConcurso.setDisable(true);
+            btnMascota.setDisable(true);
+            btnInscripcion.setDisable(true);
+            btnEvaluacion.setDisable(true);
+        }
 
     
 
@@ -98,8 +119,14 @@ public class PrincipalController implements Initializable {
     }
 
     @FXML
-    private void switchToMascota(ActionEvent event) throws IOException {
-        App.setRoot("Mascotas");
+    private void switchToMascota(ActionEvent event){
+        try {
+            App.setRoot("Mascotas");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            Alert a= new Alert(Alert.AlertType.ERROR,"No se ha registrado ningun dueño");
+            a.show();
+        }
     }
 
     @FXML

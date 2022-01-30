@@ -77,7 +77,7 @@ public abstract class Persona {
         if(this.getClass() != obj.getClass())
             return false;
         Persona pple = (Persona)obj;
-        return this.id == pple.id && Objects.equals(this.nombre, pple.nombre) && Objects.equals(this.apellidos, pple.apellidos);
+        return  Objects.equals(this.nombre, pple.nombre) && Objects.equals(this.apellidos, pple.apellidos) && Objects.equals(this.email, pple.email);
     }
     
     //saveFile abstracto

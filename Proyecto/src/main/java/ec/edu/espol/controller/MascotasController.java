@@ -5,7 +5,6 @@
  */
 package ec.edu.espol.controller;
 
-import static ec.edu.espol.controller.PrincipalController.cargarImagenes;
 import ec.edu.espol.model.Dueño;
 import ec.edu.espol.model.Mascota;
 import ec.edu.espol.proyecto.App;
@@ -17,7 +16,6 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-import java.util.Scanner;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

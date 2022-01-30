@@ -5,9 +5,10 @@
  */
 package ec.edu.espol.controller;
 
-import static ec.edu.espol.controller.MascotasController.cargarImagenes;
+import ec.edu.espol.model.ConcursoException;
 import ec.edu.espol.model.Dueño;
 import ec.edu.espol.proyecto.App;
+import ec.edu.espol.util.Util;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -17,6 +18,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -62,7 +64,10 @@ public class DueñoController implements Initializable {
         imv1.setFitHeight(200);
         hboxDueños.getChildren().add(imv1);
         btnCambios.setDisable(true);
-        btnMascota.setDisable(true);        
+        btnMascota.setDisable(true);
+        
+        
+        
     }    
     
     @FXML
@@ -72,15 +77,34 @@ public class DueñoController implements Initializable {
     
     @FXML
     private void GuardarCambios(ActionEvent event) {
+        
         String nombre = txtNombre.getText();
         String apellido = txtApellido.getText();
         String telefono = txtTelefono.getText();
         String email = txtEmail.getText();
         String direccion = txtDireccion.getText();
+        int idd = Util.nextID("dueños.txt");
+        Dueño due = new Dueño(idd, nombre, apellido, telefono, email, direccion);
+        try{
+        ArrayList<Dueño> dueños= Dueño.readFromFile("dueños.txt");
+        if(dueños.contains(due)){
+            Alert error= new Alert(Alert.AlertType.ERROR, "Dueño ya creado");
+            error.show();
+            
+            
+        }else{
+            due.saveFile("dueños.txt");
+            btnMascota.setDisable(false);
+        }
+        }catch(ConcursoException io){
+            due.saveFile("dueños.txt");
+            btnMascota.setDisable(false);
+        }
         
-        Dueño due = new Dueño(2, nombre, apellido, telefono, email, direccion);
-        due.saveFile("dueños.txt");
-        btnMascota.setDisable(false); 
+        
+        
+        
+        
     }
     
     public static ArrayList<String> cargarImagenes(String nombreArchivo) {

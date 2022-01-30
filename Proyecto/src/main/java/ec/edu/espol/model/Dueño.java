@@ -61,6 +61,9 @@ public class Dueño extends Persona{
         }        
         return sb.toString();
     }
+
+    
+    
     
     
     //NO ES NECESARIO SOBREESCRIBIR EL EQUALS, SOLO SE HEREDA
@@ -81,7 +84,7 @@ public class Dueño extends Persona{
     
     //Crear lista de Dueños por medio de los que se llenan en un archivo
     
-    public static ArrayList<Dueño> readFromFile(String nomFile) throws ConcursoException{
+    public static ArrayList<Dueño> readFromFile(String nomFile){
         ArrayList<Dueño> dos = new ArrayList<>();
         try(BufferedReader bf = new BufferedReader(new FileReader(nomFile))){
             String line;
