@@ -5,6 +5,8 @@
  */
 package ec.edu.espol.controller;
 
+import ec.edu.espol.proyecto.App;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -15,7 +17,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 
 /**
- * FXML Controller class
+ * FXML Controller class 
  *
  * @author Victor Zuñiga
  */
@@ -31,6 +33,8 @@ public class EvaluacionController implements Initializable {
     private Button btnEvaluar;
     @FXML
     private TextField txtNota;
+    @FXML
+    private Button btnMenu;
 
     /**
      * Initializes the controller class.
@@ -50,6 +54,11 @@ public class EvaluacionController implements Initializable {
 
     @FXML
     private void cambiarCriterio(ActionEvent event) {
+    }
+
+    @FXML
+    private void swtichToMenu(ActionEvent event) throws IOException {
+        App.setRoot("principal");
     }
     
 }

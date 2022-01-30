@@ -5,6 +5,8 @@
  */
 package ec.edu.espol.controller;
 
+import ec.edu.espol.proyecto.App;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -27,6 +29,8 @@ public class PremioController implements Initializable {
     private VBox vboxDatos;
     @FXML
     private Button btnConsulta;
+    @FXML
+    private Button btnMenu;
 
     /**
      * Initializes the controller class.
@@ -38,6 +42,11 @@ public class PremioController implements Initializable {
 
     @FXML
     private void cambiarConcurso(ActionEvent event) {
+    }
+
+    @FXML
+    private void switchToMenu(ActionEvent event) throws IOException {
+        App.setRoot("principal");
     }
     
 }

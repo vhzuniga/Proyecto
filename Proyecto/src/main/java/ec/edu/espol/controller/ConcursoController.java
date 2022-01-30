@@ -5,10 +5,16 @@
  */
 package ec.edu.espol.controller;
 
+
 import ec.edu.espol.model.Concurso;
+
+import ec.edu.espol.proyecto.App;
+import java.io.IOException;
+
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,6 +24,12 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+
+
 /**
  * FXML Controller class
  *
@@ -26,16 +38,21 @@ import javafx.scene.layout.VBox;
 public class ConcursoController implements Initializable {
 
     @FXML
+
     private ComboBox<Concurso> cbxConcursos;
     
     @FXML
     private VBox vbxinfo;
+
+    private Button btnMenu;
+
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+
         
         ArrayList<Concurso> concursos = Concurso.readFromFile("concursos.txt");      
         cbxConcursos.setItems(FXCollections.observableArrayList(concursos));
@@ -63,4 +80,15 @@ public class ConcursoController implements Initializable {
         vbxinfo.getChildren().add(informacion);
         //for(Concurso c: )falta hacer que al escoger el concurso aparezca la información en el vbox
     }
-}
+
+        // TODO
+    @FXML
+    private void switchToMenu(ActionEvent event) throws IOException {
+        App.setRoot("principal");
+    }
+    }    
+
+    
+    
+
+

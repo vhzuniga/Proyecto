@@ -25,5 +25,6 @@
       <ComboBox fx:id="cbxConsulta" onAction="#cambiarConcurso" prefWidth="150.0" promptText="Seleccione:" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
       <VBox fx:id="vboxDatos" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
       <Button fx:id="btnConsulta" mnemonicParsing="false" text="Consultar" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+      <Button fx:id="btnMenu" mnemonicParsing="false" onAction="#switchToMenu" text="Volver al menú principal" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
    </children>
 </GridPane>

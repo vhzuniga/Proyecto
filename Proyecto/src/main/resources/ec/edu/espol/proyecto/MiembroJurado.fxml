@@ -14,6 +14,6 @@
       <VBox layoutX="444.0" layoutY="116.0" prefHeight="97.0" prefWidth="100.0" />
       <Text layoutX="293.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Miembro Jurado" />
       <Text layoutX="87.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Escoja un miembro del jurado para ver la información" />
-      <Button layoutX="264.0" layoutY="353.0" mnemonicParsing="false" text="Volver al menú principal" />
+      <Button fx:id="btnMenu" layoutX="264.0" layoutY="353.0" mnemonicParsing="false" onAction="#switchToMenu" text="Volver al menú principal" />
    </children>
 </AnchorPane>
