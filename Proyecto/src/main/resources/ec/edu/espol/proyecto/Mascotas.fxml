@@ -11,8 +11,6 @@
    <children>
       <VBox fx:id="vboxgato" layoutX="119.0" layoutY="95.0" prefHeight="58.0" prefWidth="67.0" />
       <VBox fx:id="vboxperro" layoutX="465.0" layoutY="101.0" prefHeight="58.0" prefWidth="67.0" />
-      <ComboBox layoutX="77.0" layoutY="188.0" prefWidth="150.0" promptText="Seleccione" />
-      <ComboBox layoutX="423.0" layoutY="188.0" prefWidth="150.0" promptText="Seleccione" />
       <Text layoutX="111.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gatos" wrappingWidth="102.13671875" />
       <Text layoutX="447.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Perros" wrappingWidth="150.0" />
       <TextField fx:id="txtnombre" layoutX="186.0" layoutY="303.0" prefHeight="25.0" prefWidth="329.0" />
@@ -23,9 +21,9 @@
       <Text layoutX="52.0" layoutY="484.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tipo de mascota: " />
       <Text layoutX="56.0" layoutY="525.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dueño" />
       <ComboBox fx:id="cbxtipo" layoutX="186.0" layoutY="467.0" prefWidth="150.0" promptText="Seleccione" />
-      <ComboBox fx:id="cbxAño" layoutX="188.0" layoutY="410.0" prefHeight="25.0" prefWidth="39.0" />
-      <ComboBox fx:id="cbxMes" layoutX="261.0" layoutY="410.0" prefHeight="25.0" prefWidth="39.0" />
-      <ComboBox fx:id="cbxDía" layoutX="336.0" layoutY="410.0" prefHeight="25.0" prefWidth="39.0" />
+      <ComboBox fx:id="cbxAño" layoutX="164.0" layoutY="410.0" prefHeight="26.0" prefWidth="82.0" />
+      <ComboBox fx:id="cbxMes" layoutX="261.0" layoutY="410.0" prefHeight="26.0" prefWidth="58.0" />
+      <ComboBox fx:id="cbxDía" layoutX="336.0" layoutY="410.0" prefHeight="26.0" prefWidth="58.0" />
       <Text layoutX="202.0" layoutY="397.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Año" />
       <Text layoutX="275.0" layoutY="397.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mes" />
       <Text layoutX="350.0" layoutY="397.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Día" />

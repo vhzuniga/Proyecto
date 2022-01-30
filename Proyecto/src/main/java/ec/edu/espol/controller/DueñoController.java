@@ -58,7 +58,7 @@ public class DueñoController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         ArrayList<String> imagenes = cargarImagenes("mascota.txt");
-        Image mascotas = new Image("img miembroJ/" + imagenes.get(0));
+        Image mascotas = new Image("img miembroJ/" + imagenes.get(1));
         ImageView imv1 = new ImageView(mascotas);
         imv1.setFitWidth(400);
         imv1.setFitHeight(200);

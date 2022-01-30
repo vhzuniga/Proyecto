@@ -71,13 +71,13 @@ public class MascotasController implements Initializable {
         Image gato = new Image("img tipo/" + imagenes.get(0));
         Image perro = new Image("img tipo/" + imagenes.get(1));
         ImageView imv1= new ImageView(gato);
-        imv1.setFitWidth(50);
-        imv1.setFitHeight(50);
+        imv1.setFitWidth(75);
+        imv1.setFitHeight(75);
         vboxgato.getChildren().add(imv1);
         
         ImageView imv2= new ImageView(perro);
-        imv2.setFitWidth(50);
-        imv2.setFitHeight(50);
+        imv2.setFitWidth(75);
+        imv2.setFitHeight(75);
         vboxperro.getChildren().add(imv2);
         
         ArrayList<Dueño> dueños = Dueño.readFromFile("dueños.txt");
