@@ -5,9 +5,10 @@
  */
 package ec.edu.espol.controller;
 
-import static ec.edu.espol.controller.MascotasController.cargarImagenes;
+import ec.edu.espol.model.ConcursoException;
 import ec.edu.espol.model.Dueño;
 import ec.edu.espol.proyecto.App;
+import ec.edu.espol.util.Util;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -17,10 +18,12 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
 
 /**
@@ -29,7 +32,7 @@ import javafx.scene.layout.HBox;
  * @author Lenovo
  */
 public class DueñoController implements Initializable {
-
+    
     @FXML
     private Button btnMenu;
     @FXML
@@ -54,43 +57,71 @@ public class DueñoController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        ArrayList<String> imagenes= cargarImagenes("mascota.txt");
+        ArrayList<String> imagenes = cargarImagenes("mascota.txt");
         Image mascotas = new Image("img miembroJ/" + imagenes.get(0));
-        ImageView imv1= new ImageView(mascotas);
+        ImageView imv1 = new ImageView(mascotas);
         imv1.setFitWidth(400);
         imv1.setFitHeight(200);
         hboxDueños.getChildren().add(imv1);
+        btnCambios.setDisable(true);
+        btnMascota.setDisable(true);
+        
+        
+        
     }    
-
+    
     @FXML
     private void swtichToMenu(ActionEvent event) throws IOException {
         App.setRoot("principal");
     }
-
+    
     @FXML
     private void GuardarCambios(ActionEvent event) {
+        
         String nombre = txtNombre.getText();
         String apellido = txtApellido.getText();
         String telefono = txtTelefono.getText();
         String email = txtEmail.getText();
         String direccion = txtDireccion.getText();
+        int idd = Util.nextID("dueños.txt");
+        Dueño due = new Dueño(idd, nombre, apellido, telefono, email, direccion);
+        try{
+        ArrayList<Dueño> dueños= Dueño.readFromFile("dueños.txt");
+        if(dueños.contains(due)){
+            Alert error= new Alert(Alert.AlertType.ERROR, "Dueño ya creado");
+            error.show();
+            
+            
+        }else{
+            due.saveFile("dueños.txt");
+            btnMascota.setDisable(false);
+        }
+        }catch(ConcursoException io){
+            due.saveFile("dueños.txt");
+            btnMascota.setDisable(false);
+        }
         
-        Dueño due = new Dueño(2,nombre,apellido,telefono,email,direccion);
         
         
-        due.saveFile("dueños.txt");
+        
+
+//        Dueño due = new Dueño(2,nombre,apellido,telefono,email,direccion);
+//        
+//        
+//        due.saveFile("dueños.txt");
+//       
        
-       
+
         
     }
     
     public static ArrayList<String> cargarImagenes(String nombreArchivo) {
         ArrayList<String> imagenes = new ArrayList<>();
-        try(BufferedReader bf = new BufferedReader(new FileReader(nombreArchivo))){
+        try (BufferedReader bf = new BufferedReader(new FileReader(nombreArchivo))) {
             String line;
-            while((line = bf.readLine())!= null){
+            while ((line = bf.readLine()) != null) {
                 String[] imagen = line.split(",");
-                for(int i=0; i<imagen.length; i++){
+                for (int i = 0; i < imagen.length; i++) {
                     imagenes.add(imagen[i]);
                 }
             }
@@ -100,10 +131,47 @@ public class DueñoController implements Initializable {
         }
         return imagenes;
     }
-
+    
     @FXML
     private void switchToMascota(ActionEvent event) throws IOException {
         App.setRoot("Mascotas");
+    }
+    
+    public void habilitarBoton() {
+        if (!txtApellido.getText().isEmpty() && !txtDireccion.getText().isEmpty()
+                && !txtEmail.getText().isEmpty() && !txtNombre.getText().isEmpty()
+                && !txtTelefono.getText().isEmpty()) {
+            btnCambios.setDisable(false);
+        } else {
+            btnCambios.setDisable(true); 
+        }
+        
+    }
+
+    @FXML
+    private void keyNombre(KeyEvent event) {
+        habilitarBoton();
+    }
+    
+
+    @FXML
+    private void keyApellido(KeyEvent event) {
+        habilitarBoton();
+    }
+
+    @FXML
+    private void keyDireccion(KeyEvent event) {
+        habilitarBoton();
+    }
+
+    @FXML
+    private void keyTelefono(KeyEvent event) {
+        habilitarBoton();
+    }
+
+    @FXML
+    private void keyCorreo(KeyEvent event) {
+        habilitarBoton();
     }
     
 }

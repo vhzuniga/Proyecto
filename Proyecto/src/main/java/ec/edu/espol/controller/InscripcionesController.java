@@ -68,8 +68,8 @@ public class InscripcionesController implements Initializable {
         cbxAño.getItems().addAll(año);
         ArrayList<Concurso> concursos = Concurso.readFromFile("concursos.txt");
         cbxConcursos.getItems().addAll(concursos);
-        //ArrayList<Mascota> mascotas = Mascota.readFromFile("mascotas.txt");//No me deja ingresar a inscripciones si pongo esto
-        //cbxMascota.getItems().addAll(mascotas);
+        ArrayList<Mascota> mascotas = Mascota.readFromFile("mascotas.txt");//No me deja ingresar a inscripciones si pongo esto
+        cbxMascota.getItems().addAll(mascotas);
         //cbxMascota.getItems().addAll(mascotas);
         //concurso
               

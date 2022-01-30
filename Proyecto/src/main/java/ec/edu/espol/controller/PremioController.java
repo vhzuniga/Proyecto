@@ -18,7 +18,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 
 /**
  * FXML Controller class
@@ -34,7 +36,8 @@ public class PremioController implements Initializable {
     @FXML
     private Button btnMenu;
     @FXML
-    private Label lbPremio;
+    private ScrollPane scPremio;
+    
 
     /**
      * Initializes the controller class.
@@ -67,7 +70,15 @@ public class PremioController implements Initializable {
             //Dueño dueno;
             //int idD = 0
             //idD = dueno.getId();
-        lbPremio.setText(premios.toString());
+        VBox vb = new VBox();   
+        for(Premio p: premios){
+            Text tx = new Text(p.toString());
+            
+            tx.setWrappingWidth(scPremio.getWidth());
+            vb.getChildren().add(tx);
+        }
+        scPremio.setContent(vb);
+        
     }
     
 }

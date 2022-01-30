@@ -79,7 +79,7 @@ public class Premio {
     
     @Override
     public String toString(){
-        return "El premio "+this.descripcion+" de ID "+this.id+"  para el Concurso No. "+this.idConcurso+", esta destinado al lugar No. "+this.puesto;
+        return "El premio "+this.descripcion+" de ID "+this.id+"/n  para el Concurso No. "+this.idConcurso+", esta destinado al lugar No. "+this.puesto;
     }
 
     //Guardar Objetos Premio en un archivo de estos
