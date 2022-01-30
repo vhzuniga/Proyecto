@@ -37,8 +37,6 @@ public class PrincipalController implements Initializable {
     @FXML
     private Button btnPremio;
     @FXML
-    private Button btnConcurso;
-    @FXML
     private Button btnMascota;
 
     @Override
@@ -92,10 +90,6 @@ public class PrincipalController implements Initializable {
         App.setRoot("Criterio");
     }
 
-    @FXML
-    private void switchToConcurso(ActionEvent event) throws IOException {
-        App.setRoot("Concurso");
-    }
 
     @FXML
     private void switchToMascota(ActionEvent event) throws IOException {

@@ -76,6 +76,8 @@ public class DueñoController implements Initializable {
         String direccion = txtDireccion.getText();
         
         Dueño due = new Dueño(2,nombre,apellido,telefono,email,direccion);
+        
+        
         due.saveFile("dueños.txt");
        
        

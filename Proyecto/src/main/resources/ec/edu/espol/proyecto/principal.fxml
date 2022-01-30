@@ -23,7 +23,6 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Dueño">
@@ -31,22 +30,17 @@
                   <Insets left="50.0" />
                </GridPane.margin>
             </Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Evaluación" GridPane.rowIndex="5">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Evaluación" GridPane.rowIndex="4">
                <GridPane.margin>
                   <Insets left="50.0" />
                </GridPane.margin>
             </Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Inscripción" GridPane.rowIndex="4">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Inscripción" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets left="50.0" />
                </GridPane.margin>
             </Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Premio" GridPane.rowIndex="3">
-               <GridPane.margin>
-                  <Insets left="50.0" />
-               </GridPane.margin>
-            </Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Concurso" GridPane.rowIndex="2">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Premio" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets left="50.0" />
                </GridPane.margin>
@@ -61,22 +55,17 @@
                   <Insets left="20.0" />
                </GridPane.margin>
             </Button>
-            <Button fx:id="btnEvaluacion" mnemonicParsing="false" onAction="#switchToEvaluacion" text="Entrar" GridPane.columnIndex="1" GridPane.rowIndex="5">
+            <Button fx:id="btnEvaluacion" mnemonicParsing="false" onAction="#switchToEvaluacion" text="Entrar" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <GridPane.margin>
                   <Insets left="20.0" />
                </GridPane.margin>
             </Button>
-            <Button fx:id="btnInscripcion" mnemonicParsing="false" onAction="#switchToInscripcion" text="Entrar" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <Button fx:id="btnInscripcion" mnemonicParsing="false" onAction="#switchToInscripcion" text="Entrar" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets left="20.0" />
                </GridPane.margin>
             </Button>
-            <Button fx:id="btnPremio" mnemonicParsing="false" onAction="#switchToPremio" text="Entrar" GridPane.columnIndex="1" GridPane.rowIndex="3">
-               <GridPane.margin>
-                  <Insets left="20.0" />
-               </GridPane.margin>
-            </Button>
-            <Button fx:id="btnConcurso" mnemonicParsing="false" onAction="#switchToConcurso" text="Entrar" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <Button fx:id="btnPremio" mnemonicParsing="false" onAction="#switchToPremio" text="Entrar" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets left="20.0" />
                </GridPane.margin>

@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.controller.PremioController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="477.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.controller.PremioController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -16,15 +18,30 @@
   </columnConstraints>
   <rowConstraints>
     <RowConstraints maxHeight="127.79999389648438" minHeight="10.0" prefHeight="24.60000076293946" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="242.19999923706055" minHeight="10.0" prefHeight="107.99999084472655" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="251.00002136230472" minHeight="10.0" prefHeight="215.80000915527347" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="242.19999923706055" minHeight="10.0" prefHeight="111.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="295.0" minHeight="10.0" prefHeight="295.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="PREMIO" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="CONSULTAR CONCURSO" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
       <ComboBox fx:id="cbxConsulta" onAction="#cambiarConcurso" prefWidth="150.0" promptText="Seleccione:" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-      <VBox fx:id="vboxDatos" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-      <Button fx:id="btnConsulta" mnemonicParsing="false" text="Consultar" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-      <Button fx:id="btnMenu" mnemonicParsing="false" onAction="#switchToMenu" text="Volver al menú principal" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+      <Button fx:id="btnConsulta" mnemonicParsing="false" onAction="#consultar" text="Consultar" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+         <GridPane.margin>
+            <Insets bottom="50.0" />
+         </GridPane.margin>
+      </Button>
+      <Button fx:id="btnMenu" mnemonicParsing="false" onAction="#switchToMenu" text="Volver al menú principal" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+         <GridPane.margin>
+            <Insets bottom="50.0" />
+         </GridPane.margin></Button>
+      <ScrollPane prefHeight="271.0" prefWidth="200.0" GridPane.rowIndex="2">
+         <content>
+            <Label fx:id="lbPremio" alignment="TOP_CENTER" prefHeight="284.0" prefWidth="195.0" textAlignment="CENTER">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Label>
+         </content>
+      </ScrollPane>
    </children>
 </GridPane>

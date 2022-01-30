@@ -49,10 +49,7 @@ public class Inscripcion {
         this.idMascota = idMascota;
         this.idConcurso = idConcurso;
         this.fechaInscripcion = fechaInscripcion;
-        if(costoInscripcion>=0)
-            this.costoInscripcion = costoInscripcion;
-        else
-            this.costoInscripcion = -costoInscripcion;
+        this.costoInscripcion = costoInscripcion;  
         this.evaluaciones = new ArrayList<>();
     }
     

@@ -138,7 +138,7 @@ public class Evaluacion {
     }
     
        public void saveFile(String nomfile) throws ConcursoException{
-        try(BufferedWriter bw = new BufferedWriter(new FileWriter(nomfile, true))){//No estoy segura si es true o false, antes estaba true
+        try(BufferedWriter bw = new BufferedWriter(new FileWriter(nomfile, false))){//No estoy segura si es true o false, antes estaba true
             PrintWriter pw = new PrintWriter(bw);
             pw.println(this.idEvalucion+"|"+ this.idMiembroJurado+"|"+this.idInscripcion+"|"+this.calificacion+"|"+this.idCriterio);
         }

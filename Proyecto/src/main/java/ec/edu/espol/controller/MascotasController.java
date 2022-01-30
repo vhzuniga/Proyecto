@@ -126,6 +126,7 @@ public class MascotasController implements Initializable {
         
         int idm = Util.nextID("mascotas.txt");
         int idDueño= cbxDueño.getValue().getId();
+        
         String nombre = txtnombre.getText();
         String tipo = cbxtipo.getValue();
         String raza = txtraza.getText();

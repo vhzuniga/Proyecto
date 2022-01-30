@@ -7,26 +7,30 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="481.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.controller.InscripcionesController">
+<AnchorPane id="AnchorPane" prefHeight="602.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.controller.InscripcionesController">
    <children>
       <Text layoutX="266.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Inscripciones" />
-      <ComboBox layoutX="202.0" layoutY="180.0" prefHeight="25.0" prefWidth="175.0" promptText="Seleccione" />
-      <Text layoutX="55.0" layoutY="197.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mascota" />
-      <Text layoutX="47.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Si su mascota no consta en las opciones por favor haga clic en el botón ¨Registrar Mascota¨" />
-      <Button fx:id="btnMascota" layoutX="444.0" layoutY="180.0" mnemonicParsing="false" onAction="#switchToMascota" text="Registrar Mascota" />
-      <Text layoutX="55.0" layoutY="268.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha de inscripción" />
-      <ComboBox layoutX="201.0" layoutY="251.0" prefHeight="25.0" prefWidth="45.0" />
-      <ComboBox layoutX="277.0" layoutY="251.0" prefHeight="25.0" prefWidth="19.0" />
-      <ComboBox layoutX="352.0" layoutY="251.0" prefHeight="25.0" prefWidth="22.0" />
-      <Text layoutX="214.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Año" />
-      <Text layoutX="289.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mes" />
-      <Text layoutX="368.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Día" />
-      <Text layoutX="55.0" layoutY="316.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Valor de la inscripción" />
-      <Text layoutX="222.0" layoutY="316.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\$" />
-      <Button layoutX="388.0" layoutY="387.0" mnemonicParsing="false" text="Guardar cambios" />
-      <Button fx:id="btnMenu" layoutX="129.0" layoutY="387.0" mnemonicParsing="false" onAction="#switchToMenu" text="Volver al menú principal" />
-      <Label layoutX="240.0" layoutY="303.0" prefHeight="17.0" prefWidth="22.0" />
-      <Text layoutX="55.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Número de mascotas a inscribir" />
-      <TextField layoutX="253.0" layoutY="88.0" />
+      <ComboBox fx:id="cbxMascota" layoutX="201.0" layoutY="297.0" prefHeight="25.0" prefWidth="175.0" promptText="Seleccione" />
+      <Text layoutX="50.0" layoutY="314.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mascota" />
+      <Text layoutX="46.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Si su mascota no consta en las opciones por favor haga clic en el botón ¨Registrar Mascota¨" />
+      <Button fx:id="btnMascota" layoutX="443.0" layoutY="297.0" mnemonicParsing="false" onAction="#switchToMascota" text="Registrar Mascota" />
+      <Text layoutX="47.0" layoutY="398.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha de inscripción" />
+      <ComboBox fx:id="cbxAño" layoutX="201.0" layoutY="381.0" prefHeight="25.0" prefWidth="76.0" />
+      <ComboBox fx:id="cbxMes" layoutX="304.0" layoutY="381.0" prefHeight="25.0" prefWidth="60.0" />
+      <ComboBox fx:id="cbxDía" layoutX="398.0" layoutY="381.0" prefHeight="25.0" prefWidth="60.0" />
+      <Text layoutX="228.0" layoutY="359.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Año" />
+      <Text layoutX="323.0" layoutY="359.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mes" />
+      <Text layoutX="419.0" layoutY="359.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Día" />
+      <Text layoutX="50.0" layoutY="458.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Valor de la inscripción" />
+      <Text layoutX="217.0" layoutY="458.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\$" />
+      <Button layoutX="384.0" layoutY="514.0" mnemonicParsing="false" onAction="#Guardar" text="Guardar cambios" />
+      <Button fx:id="btnMenu" layoutX="130.0" layoutY="514.0" mnemonicParsing="false" onAction="#switchToMenu" text="Volver al menú principal" />
+      <Label fx:id="lbValor" layoutX="242.0" layoutY="445.0" prefHeight="17.0" prefWidth="22.0" />
+      <Text layoutX="46.0" layoutY="223.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Número de mascotas a inscribir" />
+      <TextField fx:id="txtnumero" layoutX="239.0" layoutY="206.0" />
+      <Text layoutX="50.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Por favor seleccione el concurso" />
+      <ComboBox fx:id="cbxConcursos" layoutX="270.0" layoutY="101.0" onAction="#cambiar" prefWidth="150.0" promptText="Seleccione" />
+      <Text layoutX="47.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Información: " />
+      <Label layoutX="121.0" layoutY="147.0" />
    </children>
 </AnchorPane>
