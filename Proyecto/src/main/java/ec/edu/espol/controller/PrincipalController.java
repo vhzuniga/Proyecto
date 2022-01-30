@@ -33,11 +33,7 @@ public class PrincipalController implements Initializable {
     @FXML
     private Button btnEvaluacion;
     @FXML
-    private Button btnMiembroJurado;
-    @FXML
     private Button btnInscripcion;
-    @FXML
-    private Button btnCriterio;
     @FXML
     private Button btnPremio;
     @FXML
@@ -83,7 +79,6 @@ public class PrincipalController implements Initializable {
         App.setRoot("Evaluacion");
     }
 
-    @FXML
     private void switchToMiembroJurado(ActionEvent event) throws IOException {
         App.setRoot("MiembroJurado");
     }
@@ -93,7 +88,6 @@ public class PrincipalController implements Initializable {
         App.setRoot("Inscripciones");
     }
 
-    @FXML
     private void switchToCriterio(ActionEvent event) throws IOException {
         App.setRoot("Criterio");
     }
@@ -106,6 +100,11 @@ public class PrincipalController implements Initializable {
     @FXML
     private void switchToMascota(ActionEvent event) throws IOException {
         App.setRoot("Mascotas");
+    }
+
+    @FXML
+    private void switchToPremio(ActionEvent event) throws IOException {
+        App.setRoot("Premio");
     }
     class Loop implements Runnable{
         ArrayList<String> imagenes;
