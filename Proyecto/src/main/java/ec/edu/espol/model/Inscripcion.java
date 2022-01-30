@@ -65,7 +65,7 @@ public class Inscripcion {
             return false;
         }
         Inscripcion new_ins = (Inscripcion) obj;
-        return (this.idInscripcion == new_ins.idInscripcion);
+        return (this.idMascota == new_ins.idMascota && this.idConcurso== new_ins.idConcurso);
     }
 
     public void setIdInscripcion(int idInscripcion) {
@@ -159,7 +159,7 @@ public class Inscripcion {
     }
             
     public void saveFile(String nomfile) throws ConcursoException{
-        try(BufferedWriter bw = new BufferedWriter(new FileWriter(nomfile, false))){//No estoy segura si es true o false, antes estaba true
+        try(BufferedWriter bw = new BufferedWriter(new FileWriter(nomfile, true))){//No estoy segura si es true o false, antes estaba true
             PrintWriter pw = new PrintWriter(bw);
             pw.println(this.idInscripcion+"|"+this.idMascota+"|"+ this.idConcurso+"|"+ this.fechaInscripcion+"|"+this.costoInscripcion);
         }

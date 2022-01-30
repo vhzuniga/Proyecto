@@ -7,6 +7,7 @@ package ec.edu.espol.controller;
 
 import static ec.edu.espol.controller.MascotasController.cargarImagenes;
 import ec.edu.espol.model.Concurso;
+import ec.edu.espol.model.ConcursoException;
 import ec.edu.espol.model.Dueño;
 import ec.edu.espol.model.Inscripcion;
 import ec.edu.espol.model.Mascota;
@@ -23,6 +24,7 @@ import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -101,6 +103,7 @@ public class InscripcionesController implements Initializable {
         }
         return imagenes;
     }
+    
 
     @FXML
     private void switchToMascota(ActionEvent event) throws IOException {
@@ -129,7 +132,21 @@ public class InscripcionesController implements Initializable {
         String precioFinal = String.valueOf(costo);
         lbValor.setText(precioFinal);
         Inscripcion ins = new Inscripcion(idm,idMascota, idConcurso, fn,costo);
-        ins.saveFile("inscripciones.txt");
+        
+        try{
+        ArrayList<Inscripcion> inscripciones= Inscripcion.readFromFile("inscripciones.txt");
+        if(inscripciones.contains(ins)){
+            Alert error= new Alert(Alert.AlertType.ERROR, "La mascota ya ha sido registrada en este concurso");
+            error.show();
+            
+            
+        }else{
+            ins.saveFile("inscripciones.txt");
+            
+        }
+        }catch(ConcursoException io){
+            ins.saveFile("inscripciones.txt");
+        }
     }
 
     @FXML
