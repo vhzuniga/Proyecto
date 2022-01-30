@@ -61,7 +61,7 @@
       <Text layoutX="95.0" layoutY="331.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registrarse aquí" />
       <Text layoutX="49.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registrese en la parte inferior y registre su mascota  " wrappingWidth="523.56640625" />
       <Button fx:id="btnMenu" layoutX="422.0" layoutY="548.0" mnemonicParsing="false" onAction="#swtichToMenu" text="Volver al menú principal" />
-      <Button layoutX="50.0" layoutY="548.0" mnemonicParsing="false" text="Registrar una mascota" />
+      <Button fx:id="btnMascota" layoutX="50.0" layoutY="548.0" mnemonicParsing="false" onAction="#switchToMascota" text="Registrar una mascota" />
       <Button fx:id="btnCambios" layoutX="256.0" layoutY="548.0" mnemonicParsing="false" onAction="#GuardarCambios" text="Guardar cambios" />
       <HBox fx:id="hboxDueños" layoutX="36.0" layoutY="108.0" prefHeight="202.0" prefWidth="545.0" />
    </children>

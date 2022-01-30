@@ -13,7 +13,7 @@
       <ComboBox layoutX="202.0" layoutY="180.0" prefHeight="25.0" prefWidth="175.0" promptText="Seleccione" />
       <Text layoutX="55.0" layoutY="197.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mascota" />
       <Text layoutX="47.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Si su mascota no consta en las opciones por favor haga clic en el botón ¨Registrar Mascota¨" />
-      <Button layoutX="444.0" layoutY="180.0" mnemonicParsing="false" text="Registrar Mascota" />
+      <Button fx:id="btnMascota" layoutX="444.0" layoutY="180.0" mnemonicParsing="false" onAction="#switchToMascota" text="Registrar Mascota" />
       <Text layoutX="55.0" layoutY="268.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha de inscripción" />
       <ComboBox layoutX="201.0" layoutY="251.0" prefHeight="25.0" prefWidth="45.0" />
       <ComboBox layoutX="277.0" layoutY="251.0" prefHeight="25.0" prefWidth="19.0" />

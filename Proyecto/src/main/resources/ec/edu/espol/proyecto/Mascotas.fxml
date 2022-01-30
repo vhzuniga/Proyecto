@@ -32,7 +32,7 @@
       <Text layoutX="53.0" layoutY="272.0" strokeType="OUTSIDE" strokeWidth="0.0" text="En caso de que su mascota no esté aparezca en las opciones, por favor llene los siguientes datos: " />
       <ComboBox layoutX="186.0" layoutY="508.0" prefWidth="150.0" promptText="Seleccione" />
       <Text layoutX="423.0" layoutY="521.0" strokeType="OUTSIDE" strokeWidth="0.0" text="En caso de no encontrar a su dueño registado por favor haga clic en el botón ¨Registrar Dueño¨" wrappingWidth="250.8828125" />
-      <Button layoutX="518.0" layoutY="566.0" mnemonicParsing="false" text="Registrar Dueño" />
+      <Button fx:id="btnDueño" layoutX="518.0" layoutY="566.0" mnemonicParsing="false" onAction="#switchToDueño" text="Registrar Dueño" />
       <Button fx:id="btnMenu" layoutX="73.0" layoutY="566.0" mnemonicParsing="false" onAction="#switchToMenu" text="Volver al menú principal" />
       <Text layoutX="325.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mascotas" />
       <Button layoutX="306.0" layoutY="566.0" mnemonicParsing="false" text="Guardar cambios" />

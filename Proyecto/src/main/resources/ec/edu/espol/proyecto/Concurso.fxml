@@ -8,10 +8,16 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.controller.ConcursoController">
    <children>
-      <ComboBox layoutX="328.0" layoutY="45.0" prefHeight="25.0" prefWidth="201.0" promptText="Seleccione" />
-      <Text layoutX="83.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Por favor escoja el concurso un concurso" />
+      <ComboBox fx:id="cbxConcursos" layoutX="327.0" layoutY="144.0" onAction="#cambiar" prefHeight="25.0" prefWidth="201.0" promptText="Seleccione" />
+      <Text layoutX="71.0" layoutY="161.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Por favor escoja el concurso un concurso" />
       <Text layoutX="288.0" layoutY="14.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Concursos" wrappingWidth="67.97265625" />
+
+      <Button layoutX="384.0" layoutY="283.0" mnemonicParsing="false" onMouseClicked="#Principal" text="Volver al menú Principal" />
+      <VBox layoutX="-2.0" layoutY="35.0" prefHeight="88.0" prefWidth="606.0" />
+      <VBox fx:id="vbxinfo" layoutX="43.0" layoutY="183.0" prefHeight="200.0" prefWidth="290.0" />
+
       <Button fx:id="btnMenu" layoutX="384.0" layoutY="283.0" mnemonicParsing="false" onAction="#switchToMenu" text="Volver al menú Principal" />
       <VBox layoutX="50.0" layoutY="98.0" prefHeight="224.0" prefWidth="231.0" />
+
    </children>
 </AnchorPane>

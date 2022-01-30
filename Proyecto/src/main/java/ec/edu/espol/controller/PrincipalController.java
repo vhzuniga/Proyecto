@@ -52,6 +52,9 @@ public class PrincipalController implements Initializable {
         imagen.start();
     }
     
+
+    
+
     public static ArrayList<String> cargarImagenes(String nombreArchivo) {
         ArrayList<String> imagenes = new ArrayList<>();
         try(BufferedReader bf = new BufferedReader(new FileReader(nombreArchivo))){
@@ -156,4 +159,5 @@ public class PrincipalController implements Initializable {
         }
         
     }
+
 }

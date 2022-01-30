@@ -36,12 +36,15 @@ public class MascotasController implements Initializable {
     @FXML
     private Button btnMenu;
     private ArrayList<String> imagenes;
+    @FXML
+    private Button btnDueño;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+
         ArrayList<String> imagenes= cargarImagenes("duenos.txt");
         Image gato = new Image("img tipo/" + imagenes.get(0));
         Image perro = new Image("img tipo/" + imagenes.get(1));
@@ -54,6 +57,9 @@ public class MascotasController implements Initializable {
         imv2.setFitWidth(50);
         imv2.setFitHeight(50);
         vboxperro.getChildren().add(imv2);
+
+        
+
     }    
 
     @FXML
@@ -76,6 +82,11 @@ public class MascotasController implements Initializable {
             ex.printStackTrace();
         }
         return imagenes;
+    }
+
+    @FXML
+    private void switchToDueño(ActionEvent event) throws IOException {
+        App.setRoot("Dueño");
     }
     
     
