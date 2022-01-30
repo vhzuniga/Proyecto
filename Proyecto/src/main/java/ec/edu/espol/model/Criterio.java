@@ -133,16 +133,17 @@ public class Criterio {
     public String toString() {
         
         StringBuilder sb = new StringBuilder();
-        sb.append("Criterio No. " + this.idCriterio +"\n Nombre del criterio: "+ this.nombre+ "\n Descripcion: " + this.descripcion+ "\n Puntaje máximo: "+this.puntajeMax);
-        sb.append("Concurso No. " + this.idConcurso + "\n Nombre del concurso: " + this.concursos.getNombre()+"\n Fecha: " + this.concursos.getFecha() +"/n Fecha de Inscripción: " + this.concursos.getFechaInscripcion() + "/n Fecha de cierre de Inscripción: " + this.concursos.getFechaCierreInscripcion()+ "/n Temática: " + this.concursos.getTematica());
-        for(Evaluacion evaluacion : this.evaluaciones)
-            //sb.append("Evaluaciones No. "+this.idEvaluacion+"\n Calificacion: "+evaluacion.getNota());
-            sb.append("Calificacion de evaluacion: "+evaluacion.getCalificacion());
+        sb.append("Criterio No. " + this.idCriterio +"Concurso No. "+this.idConcurso +"Nombre del criterio: "+ this.nombre+ "Descripcion: " + this.descripcion+ "Puntaje máximo: "+this.puntajeMax);
+//        sb.append("Concurso No. " + this.idConcurso + "\n Nombre del concurso: " + this.concursos.getNombre()+"\n Fecha: " + this.concursos.getFecha() +"/n Fecha de Inscripción: " + this.concursos.getFechaInscripcion() + "/n Fecha de cierre de Inscripción: " + this.concursos.getFechaCierreInscripcion()+ "/n Temática: " + this.concursos.getTematica());
+//        for(Evaluacion evaluacion : this.evaluaciones)
+//            //sb.append("Evaluaciones No. "+this.idEvaluacion+"\n Calificacion: "+evaluacion.getNota());
+//            sb.append("Calificacion de evaluacion: "+evaluacion.getCalificacion());
         return sb.toString();
     }
     
     
     public void saveFile(String nomFile) throws ConcursoException{ 
+        //int idCriterio,int idConcurso, String nombre, String descripcion, double puntajeMax
         try(BufferedWriter bw = new BufferedWriter(new FileWriter(nomFile, false))){//No estoy segura si es true o false, antes estaba true
             PrintWriter pw = new PrintWriter(bw);
             pw.println(Util.nextID(nomFile)+"|"+this.idConcurso+"|"+this.nombre+"|"+this.descripcion+"|"+this.puntajeMax);

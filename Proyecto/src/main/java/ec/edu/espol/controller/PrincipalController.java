@@ -2,6 +2,7 @@ package ec.edu.espol.controller;
 
 import ec.edu.espol.model.ConcursoException;
 import ec.edu.espol.model.Dueño;
+import ec.edu.espol.model.Evaluacion;
 import ec.edu.espol.model.Mascota;
 import ec.edu.espol.proyecto.App;
 import java.io.BufferedReader;
@@ -68,6 +69,16 @@ public class PrincipalController implements Initializable {
              
             
         }
+        
+//        try{
+//        ArrayList<Evaluacion> eval= Evaluacion.readFile("evaluaciones.txt");
+//        if(eval.isEmpty())
+//            btnEvaluacion.setDisable(true);
+//        }catch(ConcursoException ce){
+//            btnEvaluacion.setDisable(true);
+//             
+//            
+//        }
         
         
     

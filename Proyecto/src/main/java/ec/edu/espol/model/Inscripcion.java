@@ -149,12 +149,13 @@ public class Inscripcion {
     @Override
     public String toString(){
         StringBuilder sb = new StringBuilder();
-        sb.append("La Inscripcion no. "+this.idInscripcion+", fue hecha para la participacion de la mascota "+this.mascota.getNombre()
-                +" en el concurso "+this.concurso.getNombre()+" realizado en  "+this.fechaInscripcion+". \n Esta tiene un costo de "+this.costoInscripcion
+        //int idInscripcion, int idMascota, int idConcurso, LocalDate fechaInscripcion, double costoInscripcion
+        sb.append("La Inscripcion no. "+this.idInscripcion+", fue hecha para la mascota No."+this.idMascota
+                +" en el concurso No.  "+this.idConcurso+" realizado en  "+this.fechaInscripcion+". \n Esta tiene un costo de "+this.costoInscripcion
                 +" y tuvo las siguientes evaluaciones: ");
-        for(Evaluacion ev : this.evaluaciones){
-            sb.append("Hecha por "+ev.getMiembroJurado().getNombre()+ " sobre el criterio "+ev.getCriterio().getNombre()+ "con calificacion de "+ev.getCalificacion()+"\n.");
-        }
+//        for(Evaluacion ev : this.evaluaciones){
+//            sb.append("Hecha por "+ev.getMiembroJurado().getNombre()+ " sobre el criterio "+ev.getCriterio().getNombre()+ "con calificacion de "+ev.getCalificacion()+"\n.");
+//        }
         return sb.toString();
     }
             

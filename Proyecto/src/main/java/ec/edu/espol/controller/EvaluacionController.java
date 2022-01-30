@@ -7,6 +7,7 @@ package ec.edu.espol.controller;
 
 import static ec.edu.espol.controller.MascotasController.cargarImagenes;
 import ec.edu.espol.model.Concurso;
+import ec.edu.espol.model.ConcursoException;
 import ec.edu.espol.model.Criterio;
 import ec.edu.espol.model.Evaluacion;
 import ec.edu.espol.model.Inscripcion;
@@ -21,6 +22,7 @@ import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
@@ -51,12 +53,12 @@ public class EvaluacionController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        //ArrayList<MiembroJurado> miembroJ = MiembroJurado.readFromFile("miembroJurados.txt");
-        //cbxJurado.getItems().add(miembroJ);
-        //ArrayList<Inscripcion> inscripciones = Inscripcion.readFromFile("inscripciones.txt");
-        //cbxInscripcion.setItems(FXCollections.observableArrayList(inscripciones));
-        //ArrayList<Criterio> criterios = Criterio.readFromFile("criterios.txt");
-        //cbxCriterio.setItems(FXCollections.observableArrayList(criterios));
+        ArrayList<MiembroJurado> miembroJ = MiembroJurado.readFromFile("miembroJurados.txt");
+        cbxJurado.setItems(FXCollections.observableArrayList(miembroJ));
+        ArrayList<Inscripcion> inscripciones = Inscripcion.readFromFile("inscripciones.txt");
+        cbxInscripcion.setItems(FXCollections.observableArrayList(inscripciones));
+        ArrayList<Criterio> criterios = Criterio.readFromFile("criterios.txt");
+        cbxCriterio.setItems(FXCollections.observableArrayList(criterios));
         
     }    
 
@@ -87,6 +89,22 @@ public class EvaluacionController implements Initializable {
         int idCriterio= cbxCriterio.getValue().getIdCriterio();
         Evaluacion evaluaciones = new Evaluacion(ide,idMiembroJurado,idInscripcion,cali,idCriterio);
         evaluaciones.saveFile("evaluaciones.txt");
+        
+        try{
+            ArrayList<Evaluacion> eva= Evaluacion.readFile("evaluaciones.txt");
+            if(eva.contains(evaluaciones)){
+                Alert error= new Alert(Alert.AlertType.ERROR, "Ya se evaluo esa mascota");
+                error.show();
+            
+            
+        }else{
+            evaluaciones.saveFile("inscripciones.txt");
+            
+        }
+        }catch(ConcursoException io){
+            evaluaciones.saveFile("inscripciones.txt");
+        }
+        
         
         
         

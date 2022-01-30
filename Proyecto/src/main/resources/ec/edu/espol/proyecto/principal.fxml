@@ -77,6 +77,6 @@
             </Button>
          </children>
       </GridPane>
-      <VBox fx:id="vboxImagenes" layoutX="304.0" layoutY="71.0" prefHeight="465.0" prefWidth="290.0" />
+      <VBox fx:id="vboxImagenes" layoutX="304.0" layoutY="108.0" prefHeight="428.0" prefWidth="290.0" />
    </children>
 </AnchorPane>
