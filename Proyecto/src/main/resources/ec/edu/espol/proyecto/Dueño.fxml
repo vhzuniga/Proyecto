@@ -50,11 +50,11 @@
                   <Insets left="40.0" />
                </GridPane.margin>
             </Text>
-            <TextField fx:id="txtNombre" GridPane.columnIndex="1" />
-            <TextField fx:id="txtApellido" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField fx:id="txtDireccion" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField fx:id="txtTelefono" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField fx:id="txtEmail" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField fx:id="txtNombre" onKeyReleased="#keyNombre" GridPane.columnIndex="1" />
+            <TextField fx:id="txtApellido" onKeyReleased="#keyApellido" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="txtDireccion" onKeyReleased="#keyDireccion" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="txtTelefono" onKeyReleased="#keyTelefono" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="txtEmail" onKeyReleased="#keyCorreo" GridPane.columnIndex="1" GridPane.rowIndex="4" />
          </children>
       </GridPane>
       <Text layoutX="289.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dueños" />

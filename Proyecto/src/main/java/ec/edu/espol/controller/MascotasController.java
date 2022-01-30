@@ -66,7 +66,9 @@ public class MascotasController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        
+        
+        
         ArrayList<String> imagenes= cargarImagenes("duenos.txt");
         Image gato = new Image("img tipo/" + imagenes.get(0));
         Image perro = new Image("img tipo/" + imagenes.get(1));
