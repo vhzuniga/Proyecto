@@ -73,12 +73,10 @@ public class PremioController implements Initializable {
         VBox vb = new VBox();   
         for(Premio p: premios){
             Text tx = new Text(p.toString());
-            
             tx.setWrappingWidth(scPremio.getWidth());
             vb.getChildren().add(tx);
         }
         scPremio.setContent(vb);
         
     }
-    
 }
