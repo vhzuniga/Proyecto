@@ -9,6 +9,6 @@ module ec.edu.espol.proyecto {
     exports ec.edu.espol.model;
     opens ec.edu.espol.util to javafx.fxml;
     exports ec.edu.espol.util;
-    opens ec.edu.espol.controllers to javafx.fxml;
+    opens ec.edu.espol.controller to javafx.fxml;
     exports ec.edu.espol.controller;
 }

@@ -8,9 +8,11 @@ package ec.edu.espol.model;
 import ec.edu.espol.util.Util;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.PrintWriter;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -176,7 +178,7 @@ public class Concurso {
         }
     }
     
-    public static ArrayList<Concurso> readFromFile(String nomFile) throws ConcursoException{
+    public static ArrayList<Concurso> readFromFile(String nomFile){
         ArrayList<Concurso> concurso = new ArrayList<>();
         try(BufferedReader bf = new BufferedReader(new FileReader(nomFile))){
             String line;
@@ -191,7 +193,7 @@ public class Concurso {
             }
         }
         catch(IOException ex){
-            throw new ConcursoException("Error en la lectura");
+            ex.printStackTrace();
         }
         
         return concurso;
@@ -257,6 +259,18 @@ public class Concurso {
                  return c;   
         }
         return null;
-    }        
+    }     
+    
+    static String ruta = "concursos.txt";
+    
+    public static ArrayList<Concurso>leerCategorias() 
+        throws IOException, ClassNotFoundException{
+        ArrayList<Concurso> concursos = null;
+        try(ObjectInputStream objInputStream 
+                = new ObjectInputStream(new FileInputStream(ruta))) {
+          concursos = (ArrayList<Concurso>)objInputStream.readObject();
+        }
+        return concursos;
+    }
     
 }
