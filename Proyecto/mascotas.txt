@@ -1,6 +1,0 @@
-<<<<<<< HEAD
-1|1|pelusa|perro|hugo|2018-09-10
-2|2|amarillo|perro|naranja|2017-01-06
-=======
-1|1|Santo|gato|gris|2019-01-02
->>>>>>> 2fff88dbe74c51727fc2ceb170bf2926b44f27ee

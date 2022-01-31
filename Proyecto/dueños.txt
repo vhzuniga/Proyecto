@@ -1,6 +1,0 @@
-<<<<<<< HEAD
-1|dfd|jjkKJ|hgjg|kj|jbjk
-2|ivan|Mar|434|mar@gmail.com|loja
-=======
-1|Hugo|Zuñiga|0995984062|hugozuniga75@gmail.com|Cdla. Bolivariana
->>>>>>> 2fff88dbe74c51727fc2ceb170bf2926b44f27ee

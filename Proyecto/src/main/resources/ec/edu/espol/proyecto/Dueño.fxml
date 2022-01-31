@@ -88,6 +88,6 @@
       <Button fx:id="btnMenu" layoutX="422.0" layoutY="548.0" mnemonicParsing="false" onAction="#swtichToMenu" text="Volver al menú principal" />
       <Button fx:id="btnMascota" layoutX="50.0" layoutY="548.0" mnemonicParsing="false" onAction="#switchToMascota" text="Registrar una mascota" />
       <Button fx:id="btnCambios" layoutX="256.0" layoutY="548.0" mnemonicParsing="false" onAction="#GuardarCambios" text="Guardar cambios" />
-      <HBox fx:id="hboxDueños" layoutX="36.0" layoutY="108.0" prefHeight="202.0" prefWidth="545.0" />
+      <HBox fx:id="hboxDueños" layoutX="37.0" layoutY="108.0" prefHeight="202.0" prefWidth="545.0" />
    </children>
 </AnchorPane>
