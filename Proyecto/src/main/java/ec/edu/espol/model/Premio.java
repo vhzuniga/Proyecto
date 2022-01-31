@@ -85,7 +85,7 @@ public class Premio {
     //Guardar Objetos Premio en un archivo de estos
     
     public void saveFile(String nomFile) throws ConcursoException{
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter(nomFile, false))){//No estoy segura si es true o false, antes estaba true
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(nomFile, true))){
             PrintWriter pw = new PrintWriter(bw);
             pw.println(Util.nextID(nomFile)+"|"+this.idConcurso+"|"+this.puesto+"|"+
                 this.descripcion);
@@ -93,9 +93,7 @@ public class Premio {
         catch(IOException ex){
             throw new ConcursoException("Error en la lectura");
         }
-//        catch(Exception e){
-//            System.out.println(e.getMessage());
-//        }
+
 
     }
     
@@ -106,7 +104,6 @@ public class Premio {
         try(BufferedReader bf = new BufferedReader(new FileReader(nomFile))){
             String line;
             while((line = bf.readLine())!= null){
-                //String linea = sc.nextLine();
                 String[] tokens = line.split("\\|");
                 Premio prm = new Premio(Integer.parseInt(tokens[0]), Integer.parseInt(tokens[1]), Integer.parseInt(tokens[2]), tokens[3], null);
                 prms.add(prm);
@@ -120,7 +117,7 @@ public class Premio {
     
     public static Premio nextPremio(Scanner sc){
         int idp = Util.nextID("dueños.txt");
-        int idC = 0; // este valor default se da a proposito, para luego hacer set en el por medio de la funcion menu
+        int idC = 0; 
         System.out.println("Ingrese el puesto respectivo de su Premio");
         int plP = sc.nextInt();
         System.out.println("Ingrese la descripcion de su Premio: ");
@@ -128,4 +125,8 @@ public class Premio {
         Premio pr = new Premio(idp, idC, plP, descrP);
         return pr;
     }
+
+    
+
+    
 }

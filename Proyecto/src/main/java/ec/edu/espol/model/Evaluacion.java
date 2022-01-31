@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
-public class Evaluacion {
+public class Evaluacion implements Comparable<Evaluacion>{
     private int idEvalucion;
     private int idMiembroJurado;
     private int idInscripcion;
@@ -138,7 +138,7 @@ public class Evaluacion {
     }
     
        public void saveFile(String nomfile) throws ConcursoException{
-        try(BufferedWriter bw = new BufferedWriter(new FileWriter(nomfile, true))){//No estoy segura si es true o false, antes estaba true
+        try(BufferedWriter bw = new BufferedWriter(new FileWriter(nomfile, true))){
             PrintWriter pw = new PrintWriter(bw);
             pw.println(this.idEvalucion+"|"+ this.idMiembroJurado+"|"+this.idInscripcion+"|"+this.calificacion+"|"+this.idCriterio);
         }
@@ -152,8 +152,7 @@ public class Evaluacion {
             String line;
             while((line = bf.readLine())!= null)
             {
-                /* idEvaluacion, idMiembroJurado, idInscripcion, calificacion, idCriterio*/
-                //String linea=sc.nextLine();
+                
                 String [] tokens= line.split("\\|");
                 Evaluacion eva = new Evaluacion(Integer.parseInt(tokens[0]),Integer.parseInt(tokens[1]), Integer.parseInt(tokens[2]), Double.parseDouble(tokens[3]), Integer.parseInt(tokens[4]));
                 evaluaciones.add(eva);
@@ -173,4 +172,11 @@ public class Evaluacion {
         Evaluacion eva1= new Evaluacion(Util.nextID("evaluaciones.txt"),idmj, idInsc,cal,idCrit);
         return eva1;
     }
+
+    @Override
+    public int compareTo(Evaluacion o) {
+        return Double.compare(this.calificacion, o.calificacion);
+    }
+    
+    
 }

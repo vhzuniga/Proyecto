@@ -145,22 +145,20 @@ public class Inscripcion {
         }
     }
     
-    //Falta el toString
+    
     @Override
     public String toString(){
         StringBuilder sb = new StringBuilder();
-        //int idInscripcion, int idMascota, int idConcurso, LocalDate fechaInscripcion, double costoInscripcion
+        
         sb.append("La Inscripcion no. "+this.idInscripcion+", fue hecha para la mascota No."+this.idMascota
                 +" en el concurso No.  "+this.idConcurso+" realizado en  "+this.fechaInscripcion+". \n Esta tiene un costo de "+this.costoInscripcion
                 +" y tuvo las siguientes evaluaciones: ");
-//        for(Evaluacion ev : this.evaluaciones){
-//            sb.append("Hecha por "+ev.getMiembroJurado().getNombre()+ " sobre el criterio "+ev.getCriterio().getNombre()+ "con calificacion de "+ev.getCalificacion()+"\n.");
-//        }
+
         return sb.toString();
     }
             
     public void saveFile(String nomfile) throws ConcursoException{
-        try(BufferedWriter bw = new BufferedWriter(new FileWriter(nomfile, true))){//No estoy segura si es true o false, antes estaba true
+        try(BufferedWriter bw = new BufferedWriter(new FileWriter(nomfile, true))){
             PrintWriter pw = new PrintWriter(bw);
             pw.println(this.idInscripcion+"|"+this.idMascota+"|"+ this.idConcurso+"|"+ this.fechaInscripcion+"|"+this.costoInscripcion);
         }

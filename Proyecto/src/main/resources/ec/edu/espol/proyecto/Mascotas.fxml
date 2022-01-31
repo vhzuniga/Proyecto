@@ -5,34 +5,65 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane id="AnchorPane" prefHeight="617.0" prefWidth="693.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.controller.MascotasController">
    <children>
-      <VBox fx:id="vboxgato" layoutX="119.0" layoutY="95.0" prefHeight="58.0" prefWidth="67.0" />
-      <VBox fx:id="vboxperro" layoutX="465.0" layoutY="101.0" prefHeight="58.0" prefWidth="67.0" />
-      <Text layoutX="111.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gatos" wrappingWidth="102.13671875" />
-      <Text layoutX="447.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Perros" wrappingWidth="150.0" />
+      <VBox fx:id="vboxgato" layoutX="99.0" layoutY="119.0" prefHeight="97.0" prefWidth="115.0" />
+      <VBox fx:id="vboxperro" layoutX="412.0" layoutY="119.0" prefHeight="97.0" prefWidth="115.0" />
+      <Text layoutX="105.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gatos" wrappingWidth="102.13671875">
+         <font>
+            <Font name="Century" size="13.0" />
+         </font></Text>
+      <Text layoutX="443.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Perros" wrappingWidth="150.0">
+         <font>
+            <Font name="Century" size="13.0" />
+         </font></Text>
       <TextField fx:id="txtnombre" layoutX="186.0" layoutY="303.0" prefHeight="25.0" prefWidth="329.0" />
       <TextField fx:id="txtraza" layoutX="186.0" layoutY="343.0" prefHeight="25.0" prefWidth="329.0" />
-      <Text layoutX="53.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre: " />
-      <Text layoutX="41.0" layoutY="427.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha de nacimiento: " />
-      <Text layoutX="52.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Raza: " />
-      <Text layoutX="52.0" layoutY="484.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tipo de mascota: " />
-      <Text layoutX="56.0" layoutY="525.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dueño" />
+      <Text fill="#dd9b17" layoutX="53.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre: ">
+         <font>
+            <Font name="Elephant" size="13.0" />
+         </font></Text>
+      <Text fill="#dd7f7fd9" layoutX="52.0" layoutY="426.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha de nacimiento: ">
+         <font>
+            <Font name="Elephant" size="13.0" />
+         </font></Text>
+      <Text fill="#ac64c6" layoutX="52.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Raza: ">
+         <font>
+            <Font name="Elephant" size="13.0" />
+         </font></Text>
+      <Text fill="#a5dd15" layoutX="52.0" layoutY="484.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tipo de mascota: ">
+         <font>
+            <Font name="Elephant" size="13.0" />
+         </font></Text>
+      <Text fill="#29bce1" layoutX="56.0" layoutY="525.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dueño">
+         <font>
+            <Font name="Elephant" size="13.0" />
+         </font></Text>
       <ComboBox fx:id="cbxtipo" layoutX="186.0" layoutY="467.0" prefWidth="150.0" promptText="Seleccione" />
-      <ComboBox fx:id="cbxAño" layoutX="164.0" layoutY="410.0" prefHeight="26.0" prefWidth="82.0" />
-      <ComboBox fx:id="cbxMes" layoutX="261.0" layoutY="410.0" prefHeight="26.0" prefWidth="58.0" />
-      <ComboBox fx:id="cbxDía" layoutX="336.0" layoutY="410.0" prefHeight="26.0" prefWidth="58.0" />
-      <Text layoutX="202.0" layoutY="397.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Año" />
-      <Text layoutX="275.0" layoutY="397.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mes" />
-      <Text layoutX="350.0" layoutY="397.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Día" />
-      <Text layoutX="53.0" layoutY="272.0" strokeType="OUTSIDE" strokeWidth="0.0" text="En caso de que su mascota no esté aparezca en las opciones, por favor llene los siguientes datos: " />
+      <ComboBox fx:id="cbxAño" layoutX="207.0" layoutY="409.0" prefHeight="26.0" prefWidth="82.0" />
+      <ComboBox fx:id="cbxMes" layoutX="321.0" layoutY="409.0" prefHeight="26.0" prefWidth="60.0" />
+      <ComboBox fx:id="cbxDía" layoutX="423.0" layoutY="409.0" prefHeight="26.0" prefWidth="60.0" />
+      <Text layoutX="237.0" layoutY="397.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Año" />
+      <Text layoutX="339.0" layoutY="397.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mes" />
+      <Text layoutX="443.0" layoutY="397.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Día" />
+      <Text layoutX="53.0" layoutY="272.0" strokeType="OUTSIDE" strokeWidth="0.0" text="En caso de que su mascota no esté aparezca en las opciones, por favor llene los siguientes datos: ">
+         <font>
+            <Font name="Century" size="13.0" />
+         </font></Text>
       <ComboBox fx:id="cbxDueño" layoutX="186.0" layoutY="508.0" prefWidth="150.0" promptText="Seleccione" />
-      <Text layoutX="423.0" layoutY="521.0" strokeType="OUTSIDE" strokeWidth="0.0" text="En caso de no encontrar a su dueño registado por favor haga clic en el botón ¨Registrar Dueño¨" wrappingWidth="250.8828125" />
+      <Text layoutX="423.0" layoutY="509.0" strokeType="OUTSIDE" strokeWidth="0.0" text="En caso de no encontrar a su dueño registado por favor haga clic en el botón ¨Registrar Dueño¨" wrappingWidth="250.8828125">
+         <font>
+            <Font name="Century" size="13.0" />
+         </font></Text>
       <Button fx:id="btnDueño" layoutX="518.0" layoutY="566.0" mnemonicParsing="false" onAction="#switchToDueño" text="Registrar Dueño" />
       <Button fx:id="btnMenu" layoutX="73.0" layoutY="566.0" mnemonicParsing="false" onAction="#switchToMenu" text="Volver al menú principal" />
-      <Text layoutX="325.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mascotas" />
+      <Text fill="#ed5cba" layoutX="234.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mascotas" textAlignment="CENTER">
+         <font>
+            <Font name="Elephant" size="36.0" />
+         </font></Text>
       <Button layoutX="306.0" layoutY="566.0" mnemonicParsing="false" onAction="#Guardar" text="Guardar cambios" />
    </children>
 </AnchorPane>

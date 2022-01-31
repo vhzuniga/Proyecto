@@ -1,1 +1,2 @@
-1|1|fdfd|perro|fgfgg|2016-01-02
+1|1|pelusa|perro|hugo|2018-09-10
+2|2|amarillo|perro|naranja|2017-01-06

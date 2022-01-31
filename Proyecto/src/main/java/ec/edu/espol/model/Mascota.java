@@ -140,12 +140,11 @@ public class Mascota {
     @Override
     public String toString() {
         return "idMascota=" + idMascota +"id Dueño:"+ idDueño+", nombre=" + nombre + ", tipo= "+tipo+", raza=" + raza + ", fechaNacimiento=" + fechaNacimiento;
-    }  //int idMascota, String nombre, String tipo, String raza, LocalDate fechaNacimiento, int idDueño, Dueño dueño, ArrayList<Inscripcion> inscripciones
-    //int idMascota,int idDueño, String nombre, String tipo, String raza, LocalDate fechaNacimiento
+    }  
     
     
     public void saveFile(String nomFile) throws ConcursoException{ 
-        try(BufferedWriter bw = new BufferedWriter(new FileWriter(nomFile, true))){//No estoy segura si es true o false, antes estaba true
+        try(BufferedWriter bw = new BufferedWriter(new FileWriter(nomFile, true))){
             PrintWriter pw = new PrintWriter(bw);
             pw.println(Util.nextID(nomFile)+"|"+this.idDueño+"|"+this.nombre+"|"+this.tipo+"|"+this.raza+"|"+this.fechaNacimiento);
             
@@ -160,9 +159,9 @@ public class Mascota {
         try(BufferedReader bf = new BufferedReader(new FileReader(nomFile))){
             String line;
             while((line = bf.readLine())!= null){
-                //String linea = sc.nextLine();
+                
                 String[] tokens = line.split("\\|");
-                /*int idMascota,int idDueño, String nombre, String tipo, String raza, LocalDate fechaNacimiento*/
+               
                 Mascota mas = new Mascota(Integer.parseInt(tokens[0]),Integer.parseInt(tokens[1]), tokens[2],tokens[3],tokens[4],LocalDate.parse(tokens[5]));
                 mascota.add(mas);
             }

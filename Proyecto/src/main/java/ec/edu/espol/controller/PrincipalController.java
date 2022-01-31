@@ -3,6 +3,7 @@ package ec.edu.espol.controller;
 import ec.edu.espol.model.ConcursoException;
 import ec.edu.espol.model.Dueño;
 import ec.edu.espol.model.Evaluacion;
+import ec.edu.espol.model.Inscripcion;
 import ec.edu.espol.model.Mascota;
 import ec.edu.espol.proyecto.App;
 import java.io.BufferedReader;
@@ -71,8 +72,8 @@ public class PrincipalController implements Initializable {
             btnInscripcion.setDisable(true);
         }
         try{
-        ArrayList<Evaluacion> evaluaciones= Evaluacion.readFile("evaluaciones.txt");
-        if(evaluaciones.isEmpty())
+        ArrayList<Inscripcion> inscripciones= Inscripcion.readFromFile("inscripciones.txt");
+        if(inscripciones.isEmpty())
             btnEvaluacion.setDisable(true);
         }catch(ConcursoException ce){
             btnEvaluacion.setDisable(true);
@@ -81,21 +82,9 @@ public class PrincipalController implements Initializable {
         Image encabezado = new Image("img miembroJ/" + imagenes1.get(0));
         ImageView imv= new ImageView(encabezado);
         imv.setFitWidth(100);
-        imv.setFitHeight(100);
+        imv.setFitHeight(75);
         paneImagen.getChildren().add(imv);
-        
-//        try{
-//        ArrayList<Evaluacion> eval= Evaluacion.readFile("evaluaciones.txt");
-//        if(eval.isEmpty())
-//            btnEvaluacion.setDisable(true);
-//        }catch(ConcursoException ce){
-//            btnEvaluacion.setDisable(true);
-//             
-//            
-//        }
-        
-        
-    
+  
         
     }
     public void desactivar(){

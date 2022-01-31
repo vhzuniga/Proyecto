@@ -71,15 +71,8 @@ public class InscripcionesController implements Initializable {
         ArrayList<Concurso> concursos = Concurso.readFromFile("concursos.txt");
         
         cbxConcursos.getItems().addAll(concursos);
-        ArrayList<Mascota> mascotas = Mascota.readFromFile("mascotas.txt");//No me deja ingresar a inscripciones si pongo esto
+        ArrayList<Mascota> mascotas = Mascota.readFromFile("mascotas.txt");
         cbxMascota.getItems().addAll(mascotas);
-        //cbxMascota.getItems().addAll(mascotas);
-        //concurso
-              
-        
-        //Label informacion= new Label();
-        //informacion.setText("Información");
-        //vbxinfo.getChildren().add(informacion);
         
     }
 
@@ -113,7 +106,7 @@ public class InscripcionesController implements Initializable {
 
     @FXML
     private void Guardar(ActionEvent event) {
-        //int idInscripcion, int idMascota, int idConcurso, LocalDate fechaInscripcion, double costoInscripcion
+        
         
         int idm = Util.nextID("inscripciones.txt");
         int idConcurso = cbxConcursos.getValue().getIdConcurso();

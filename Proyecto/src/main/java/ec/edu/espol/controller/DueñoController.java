@@ -101,18 +101,7 @@ public class DueñoController implements Initializable {
             btnMascota.setDisable(false);
         }
         
-        
-        
-        
-
-//        Dueño due = new Dueño(2,nombre,apellido,telefono,email,direccion);
-//        
-//        
-//        due.saveFile("dueños.txt");
-//       
-       
-
-        
+      
     }
     
     public static ArrayList<String> cargarImagenes(String nombreArchivo) {

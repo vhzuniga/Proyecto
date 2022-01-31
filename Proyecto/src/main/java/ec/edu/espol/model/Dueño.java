@@ -72,7 +72,7 @@ public class Dueño extends Persona{
 
     @Override
     public void saveFile(String nomFile) throws ConcursoException{
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter(nomFile, true))){//No estoy segura si es true o false, antes estaba true
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(nomFile, true))){
             PrintWriter pw = new PrintWriter(bw);
             pw.println(Util.nextID(nomFile)+"|"+this.nombre+"|"+this.apellidos+"|"+
                     this.telefono+"|"+this.email+"|"+this.direccion);
@@ -89,7 +89,6 @@ public class Dueño extends Persona{
         try(BufferedReader bf = new BufferedReader(new FileReader(nomFile))){
             String line;
             while((line = bf.readLine())!= null){
-                //String linea = sc.nextLine();
                 String[] tokens = line.split("\\|");
                 Dueño deo = new Dueño(Integer.parseInt(tokens[0]), tokens[1], tokens[2], tokens[3], tokens[4], tokens[5]);
                 dos.add(deo);

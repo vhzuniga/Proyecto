@@ -168,7 +168,7 @@ public class Concurso {
     //métodos
     
      public void saveFile(String nomFile) throws ConcursoException{ 
-        try(BufferedWriter bw = new BufferedWriter(new FileWriter(nomFile, true))){//No estoy segura si es true o false, antes estaba true
+        try(BufferedWriter bw = new BufferedWriter(new FileWriter(nomFile, true))){
             PrintWriter pw = new PrintWriter(bw);
             pw.println(Util.nextID(nomFile)+ "|" + this.nombre+"|" + this.fecha +"|" + this.fechaInscripcion + "|" + this.fechaCierreInscripcion+ "|" + this.tematica);
             
@@ -200,25 +200,7 @@ public class Concurso {
     }
     
     
-//    public static ArrayList<Concurso> readFromFile(String nomFile){
-//        ArrayList<Concurso> concurso = new ArrayList<>();
-//        try(BufferReader bf = new BufferedReader(new FileReader(nomFile))){
-//            while(bf.hasNextLine()){
-//                String linea = sc.nextLine();
-//                String[] tokens = linea.split("\\|");// revisar video
-//                /*int idConcurso, String nombre, LocalDate fecha, LocalDate fechaInscripcion, LocalDate fechaCierreInscripcion, String tematica*/
-//                Concurso con = new Concurso (Integer.parseInt(tokens[0]),tokens[1],LocalDate.parse(tokens[2]),LocalDate.parse(tokens[3]),
-//                        LocalDate.parse(tokens[4]),tokens[5]);
-//                
-//                concurso.add(con);
-//            }
-//        }
-//        catch(Exception e){
-//            System.out.println(e.getMessage());
-//        }
-//        
-//        return concurso;
-//    }
+
     
     public static Concurso nextConcurso(Scanner sc){
         sc.useDelimiter("\n");
