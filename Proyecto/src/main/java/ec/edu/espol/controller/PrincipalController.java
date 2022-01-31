@@ -78,6 +78,8 @@ public class PrincipalController implements Initializable {
         }catch(ConcursoException ce){
             btnEvaluacion.setDisable(true);
         }
+        
+        
         ArrayList<String> imagenes1= cargarImagenes("mascota.txt");
         Image encabezado = new Image("img miembroJ/" + imagenes1.get(0));
         ImageView imv= new ImageView(encabezado);

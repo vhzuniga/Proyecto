@@ -6,7 +6,12 @@
 package ec.edu.espol.controller;
 
 import ec.edu.espol.model.Concurso;
+
 import ec.edu.espol.model.Evaluacion;
+
+import ec.edu.espol.model.Inscripcion;
+import ec.edu.espol.model.Mascota;
+
 import ec.edu.espol.model.Premio;
 import ec.edu.espol.proyecto.App;
 import java.io.IOException;
@@ -21,6 +26,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
@@ -39,6 +45,11 @@ public class PremioController implements Initializable {
     private Button btnMenu;
     @FXML
     private ScrollPane scPremio;
+
+    @FXML
+    private Pane txtPane;
+    
+
 
     /**
      * Initializes the controller class.
@@ -62,6 +73,7 @@ public class PremioController implements Initializable {
 
     @FXML
     private void consultar(ActionEvent event) {
+
         int idConcurso = cbxConsulta.getValue().getIdConcurso();
         ArrayList<Premio> premios = Premio.readFromFile("premios.txt");
         ArrayList<Concurso> concursos = Concurso.readFromFile("concursos.txt");
@@ -79,8 +91,19 @@ public class PremioController implements Initializable {
             vb.getChildren().add(tx);
                 
         }
-        scPremio.setContent(vb);
-        
+
+        Concurso c1 = cbxConsulta.getValue();
+        ArrayList<Inscripcion> inscripciones = Inscripcion.readFromFile("inscripciones.txt");
+        ArrayList<Mascota> mascotas = Mascota.readFromFile("mascotas.txt");
+        //int id, int idConcurso, int puesto, String descripcion
+        for(Inscripcion i1: inscripciones){
+            for(Mascota m1: mascotas)
+            if(i1.getIdConcurso()==c1.getIdConcurso() && i1.getIdMascota()==m1.getIdMascota()){
+                Text txt = new Text(m1.toString());
+                txtPane.getChildren().add(txt);
+            }
+            
+        }
 
 
     }

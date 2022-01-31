@@ -63,7 +63,7 @@ public class Evaluacion implements Comparable<Evaluacion>{
             return false;
         }
         Evaluacion eva1 = (Evaluacion) obj;
-        return (this.idInscripcion == eva1.idInscripcion && this.calificacion== eva1.calificacion);
+        return (this.idMiembroJurado == eva1.idMiembroJurado && this.idInscripcion== eva1.idInscripcion && this.idCriterio==eva1.idCriterio);
     }
 
     public int getIdEvalucion() {
